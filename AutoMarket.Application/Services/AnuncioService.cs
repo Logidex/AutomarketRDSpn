@@ -60,7 +60,7 @@ public class AnuncioService
             Accesorios = anuncio.Accesorios,
             Ubicacion = anuncio.Ubicacion,
             Descripcion = anuncio.Descripcion,
-            Estado = anuncio.Estado.ToString(),
+            Estado = anuncio.Estado,
             Fotos = anuncio.Fotos.ToList()
         };
     }
@@ -75,10 +75,50 @@ public class AnuncioService
             NombreAnuncio = e.NombreAnuncio,
             Precio = e.Precio,
             Ubicacion = e.Ubicacion,
-            Estado = e.Estado.ToString(),
+            Estado = e.Estado,
             // Enviamos solo la primera foto para la miniatura de la tarjeta
             Fotos = e.Fotos.Take(1).ToList(),
         }).ToList();
 
+    }
+
+    public async Task<AnuncioUpdateDto?> ActualizarAsync(AnuncioUpdateDto updateAnuncio)
+    {
+        var anuncio = await _repository.ObtenerPorIdAsync(updateAnuncio.Id);
+
+        if (anuncio == null) return null;
+
+        anuncio.ActualizarInfo(
+            updateAnuncio.Marca,
+            updateAnuncio.Modelo,
+            updateAnuncio.TipoVehiculo,
+            updateAnuncio.ColorExterior,
+            updateAnuncio.ColorInterior,
+            updateAnuncio.Anio,
+            updateAnuncio.Precio,
+            updateAnuncio.Kilometraje,
+            updateAnuncio.Transmision,
+            updateAnuncio.Combustible,
+            updateAnuncio.Accesorios,
+            updateAnuncio.Ubicacion,
+            updateAnuncio.Descripcion,
+            updateAnuncio.PublicarAlGuardar
+        );
+
+        await _repository.ActualizarAsync(anuncio);
+
+        return updateAnuncio;
+    }
+
+    public async Task<bool> PublicarAnuncioAsync(int id)
+    {
+        var anuncio = await _repository.ObtenerPorIdAsync(id);
+        
+        if (anuncio == null) return false;
+
+        anuncio.MarcarComoPublicado();
+
+        await _repository.ActualizarAsync(anuncio);
+        return true;
     }
 }

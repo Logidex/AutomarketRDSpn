@@ -32,6 +32,15 @@ public class AnuncioRepository : IAnuncioRepository
 
     public async Task<IReadOnlyCollection<Anuncio>> ObtenerTodosLosAnuncios()
     {
-      return await _context.Anuncios.ToListAsync();
+      return await _context.Anuncios
+            .Where(a => a.Estado == "Publicado")
+            .ToListAsync();
+    }
+
+    public async Task ActualizarAsync(Anuncio anuncio)
+    {
+         _context.Anuncios.Update(anuncio);
+        await _context.SaveChangesAsync();
+
     }
 }

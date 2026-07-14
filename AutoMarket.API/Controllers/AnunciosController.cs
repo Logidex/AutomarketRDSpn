@@ -31,7 +31,7 @@ public class AnunciosController : ControllerBase
 
         if (anuncioDto == null)
         {
-            return NotFound(new { mensaje = $"El vehículo con ID {id} no fue encontrado en la base de datos."});
+            return NotFound(new { mensaje = $"El vehículo con ID {id} no fue encontrado en la base de datos." });
         }
 
         return Ok(anuncioDto);
@@ -40,8 +40,25 @@ public class AnunciosController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> ObtenerTodosLosAnuncios()
     {
-        var entidades = await _anuncioService.ObtenerTodosLosAnuncios();
+        var anuncios = await _anuncioService.ObtenerTodosLosAnuncios();
 
-        return Ok(entidades);
+        return Ok(anuncios);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ActualizarAnuncio(int id, [FromBody] AnuncioUpdateDto updateDto)
+    {
+        var resultado = await _anuncioService.ActualizarAsync(updateDto);
+        if (resultado == null) return NotFound($"El vehículo con ID {id} no fue encontrado.");
+        return Ok(resultado);
+
+    }
+
+    [HttpPatch("{id}/publicar")]
+    public async Task<IActionResult> Publicar(int id)
+    {
+        var publicado = await _anuncioService.PublicarAnuncioAsync(id);
+        if (!publicado) return NotFound($"No se encontró el anuncio {id}.");
+       return Ok(publicado);
     }
 }

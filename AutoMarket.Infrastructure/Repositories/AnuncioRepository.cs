@@ -25,8 +25,13 @@ public class AnuncioRepository : IAnuncioRepository
         return vehiculoEncontrado;
     }
 
-    public  async Task GuardarCambiosAsync()
+    public async Task GuardarCambiosAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<IReadOnlyCollection<Anuncio>> ObtenerTodosLosAnuncios()
+    {
+      return await _context.Anuncios.ToListAsync();
     }
 }

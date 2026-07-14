@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMarket.Application.DTOs;
 using AutoMarket.Application.Services;
+using AutoMarket.Core.Entities;
 
 namespace AutoMarket.API.Controllers;
 
@@ -21,5 +22,26 @@ public class AnunciosController : ControllerBase
     {
         await _anuncioService.CrearAnuncioAsync(dto);
         return Ok("Anuncio creado correctamente.");
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> ObtenerPorId(int id)
+    {
+        var anuncioDto = await _anuncioService.ObtenerAnuncioPorIdAsync(id);
+
+        if (anuncioDto == null)
+        {
+            return NotFound(new { mensaje = $"El vehículo con ID {id} no fue encontrado en la base de datos."});
+        }
+
+        return Ok(anuncioDto);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> ObtenerTodosLosAnuncios()
+    {
+        var entidades = await _anuncioService.ObtenerTodosLosAnuncios();
+
+        return Ok(entidades);
     }
 }

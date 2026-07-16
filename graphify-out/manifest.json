@@ -1,0 +1,317 @@
+{
+  "AutoMarket.API/AutoMarket.API.csproj": {
+    "mtime": 1784041274.5701945,
+    "ast_hash": "b9ea88d5de7240b3d01300ab1c8ca290",
+    "semantic_hash": "b9ea88d5de7240b3d01300ab1c8ca290"
+  },
+  "AutoMarket.API/Controllers/AnunciosController.cs": {
+    "mtime": 1784068201.515013,
+    "ast_hash": "441063409dacb0fdc3bbcff396fd7d9c",
+    "semantic_hash": "441063409dacb0fdc3bbcff396fd7d9c"
+  },
+  "AutoMarket.API/Program.cs": {
+    "mtime": 1783998020.076645,
+    "ast_hash": "2e22d05cf04d8ca65e439560c19e4327",
+    "semantic_hash": "2e22d05cf04d8ca65e439560c19e4327"
+  },
+  "AutoMarket.API/Properties/launchSettings.json": {
+    "mtime": 1783989754.5274684,
+    "ast_hash": "505baceaf61c6f99f8ab5882e5d795d5",
+    "semantic_hash": "505baceaf61c6f99f8ab5882e5d795d5"
+  },
+  "AutoMarket.API/appsettings.Development.json": {
+    "mtime": 1783989754.5274684,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": "804b473502a4c415cf75db61c56c32aa"
+  },
+  "AutoMarket.API/appsettings.json": {
+    "mtime": 1783989754.547475,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": "f7e65dde4e5533740a0d57ac9355c0e8"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/AutoMarket.API.deps.json": {
+    "mtime": 1784041288.7749987,
+    "ast_hash": "1c47a6c4bc6ae77a1f3ccd72f338346c",
+    "semantic_hash": "1c47a6c4bc6ae77a1f3ccd72f338346c"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/AutoMarket.API.runtimeconfig.json": {
+    "mtime": 1784041288.8019974,
+    "ast_hash": "37595336dae30b037bd95e5047b95825",
+    "semantic_hash": "37595336dae30b037bd95e5047b95825"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/AutoMarket.API.staticwebassets.endpoints.json": {
+    "mtime": 1784041288.7017794,
+    "ast_hash": "f44ca44dd881261586b84442f2201257",
+    "semantic_hash": "f44ca44dd881261586b84442f2201257"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/BuildHost-netcore/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json": {
+    "mtime": 1763421306.0,
+    "ast_hash": "6a002d69baf7b85bfe11c404487f1905",
+    "semantic_hash": "6a002d69baf7b85bfe11c404487f1905"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/BuildHost-netcore/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json": {
+    "mtime": 1763421306.0,
+    "ast_hash": "4a59cbd5a00293f28ad2649fdda570f9",
+    "semantic_hash": "4a59cbd5a00293f28ad2649fdda570f9"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/appsettings.Development.json": {
+    "mtime": 1783989754.5274684,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": "804b473502a4c415cf75db61c56c32aa"
+  },
+  "AutoMarket.API/bin/Debug/net10.0/appsettings.json": {
+    "mtime": 1783989754.547475,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": "f7e65dde4e5533740a0d57ac9355c0e8"
+  },
+  "AutoMarket.API/obj/AutoMarket.API.csproj.nuget.dgspec.json": {
+    "mtime": 1784041276.8371878,
+    "ast_hash": "b4e8d3c05797706057146e4abe2702c5",
+    "semantic_hash": "b4e8d3c05797706057146e4abe2702c5"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1783997764.304346,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": "8479efdf06e2d26e053d27ffa6964185"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/AutoMarket.API.AssemblyInfo.cs": {
+    "mtime": 1784161991.8144133,
+    "ast_hash": "2f0a7f4166f18ddc25333145897f67a2",
+    "semantic_hash": "2f0a7f4166f18ddc25333145897f67a2"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/AutoMarket.API.GlobalUsings.g.cs": {
+    "mtime": 1783997172.785681,
+    "ast_hash": "5b3fdaae7b59d230d7d136eab049a98a",
+    "semantic_hash": "5b3fdaae7b59d230d7d136eab049a98a"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/AutoMarket.API.MvcApplicationPartsAssemblyInfo.cs": {
+    "mtime": 1784041288.3742561,
+    "ast_hash": "78ebdea476ed39e962105ba794fb3dc3",
+    "semantic_hash": "78ebdea476ed39e962105ba794fb3dc3"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json": {
+    "mtime": 1784068605.2650905,
+    "ast_hash": "d601df0433b7718661585e3a7f1ea876",
+    "semantic_hash": "d601df0433b7718661585e3a7f1ea876"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/rjsmrazor.dswa.cache.json": {
+    "mtime": 1784068605.2630908,
+    "ast_hash": "0c36e82e51797cc3a6ad438e3969cc78",
+    "semantic_hash": "0c36e82e51797cc3a6ad438e3969cc78"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/rpswa.dswa.cache.json": {
+    "mtime": 1784041288.3267424,
+    "ast_hash": "ade58428602bd1adcca7aec53b083302",
+    "semantic_hash": "ade58428602bd1adcca7aec53b083302"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/staticwebassets.build.endpoints.json": {
+    "mtime": 1784041288.7017794,
+    "ast_hash": "f44ca44dd881261586b84442f2201257",
+    "semantic_hash": "f44ca44dd881261586b84442f2201257"
+  },
+  "AutoMarket.API/obj/Debug/net10.0/staticwebassets.build.json": {
+    "mtime": 1784041288.6977794,
+    "ast_hash": "28c47bbfacba121be2706751b25a28d5",
+    "semantic_hash": "28c47bbfacba121be2706751b25a28d5"
+  },
+  "AutoMarket.API/obj/project.assets.json": {
+    "mtime": 1784041276.8271806,
+    "ast_hash": "d2f7ec8a61b639c527304db40fb3fda4",
+    "semantic_hash": "d2f7ec8a61b639c527304db40fb3fda4"
+  },
+  "AutoMarket.Application/AutoMarket.Application.csproj": {
+    "mtime": 1783989820.752462,
+    "ast_hash": "436e60341dfd1a161cf7b5c6ff2bc84a",
+    "semantic_hash": "436e60341dfd1a161cf7b5c6ff2bc84a"
+  },
+  "AutoMarket.Application/DTOs/AnuncioCreateDTO.cs": {
+    "mtime": 1783994144.6849709,
+    "ast_hash": "9d99c23e24d53d337f34cd2cd8fb1461",
+    "semantic_hash": "9d99c23e24d53d337f34cd2cd8fb1461"
+  },
+  "AutoMarket.Application/DTOs/AnuncioDTO.cs": {
+    "mtime": 1784040769.710446,
+    "ast_hash": "fc33f1dea2991b64014700944758da56",
+    "semantic_hash": "fc33f1dea2991b64014700944758da56"
+  },
+  "AutoMarket.Application/DTOs/AnuncioListadoDTO.cs": {
+    "mtime": 1784044382.6764011,
+    "ast_hash": "0c009fe0e3d885f251b1dcaa1da91745",
+    "semantic_hash": "0c009fe0e3d885f251b1dcaa1da91745"
+  },
+  "AutoMarket.Application/DTOs/AnuncioUpdateDTO.cs": {
+    "mtime": 1784066831.7754138,
+    "ast_hash": "6b075d29ee6cf046d5483bea5f936ae6",
+    "semantic_hash": "6b075d29ee6cf046d5483bea5f936ae6"
+  },
+  "AutoMarket.Application/Services/AnuncioService.cs": {
+    "mtime": 1784067527.2779553,
+    "ast_hash": "a93630aa0fab1e22926cc7b4e9bc14a0",
+    "semantic_hash": "a93630aa0fab1e22926cc7b4e9bc14a0"
+  },
+  "AutoMarket.Application/bin/Debug/net10.0/AutoMarket.Application.deps.json": {
+    "mtime": 1784041287.8823233,
+    "ast_hash": "2deb95af6be722cf75b18f151928243b",
+    "semantic_hash": "2deb95af6be722cf75b18f151928243b"
+  },
+  "AutoMarket.Application/obj/AutoMarket.Application.csproj.nuget.dgspec.json": {
+    "mtime": 1783997172.5573516,
+    "ast_hash": "879598fc9d41c1a97b20113c4a537862",
+    "semantic_hash": "879598fc9d41c1a97b20113c4a537862"
+  },
+  "AutoMarket.Application/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1783997552.1778133,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": "8479efdf06e2d26e053d27ffa6964185"
+  },
+  "AutoMarket.Application/obj/Debug/net10.0/AutoMarket.Application.AssemblyInfo.cs": {
+    "mtime": 1784161991.5117347,
+    "ast_hash": "4b323e19f34df15b2d83e05f5bf17105",
+    "semantic_hash": "4b323e19f34df15b2d83e05f5bf17105"
+  },
+  "AutoMarket.Application/obj/Debug/net10.0/AutoMarket.Application.GlobalUsings.g.cs": {
+    "mtime": 1783997173.2707288,
+    "ast_hash": "9706b2dbf69f7db452e8b0d5baf54dcf",
+    "semantic_hash": "9706b2dbf69f7db452e8b0d5baf54dcf"
+  },
+  "AutoMarket.Application/obj/project.assets.json": {
+    "mtime": 1783997172.548242,
+    "ast_hash": "bfd5cdbc049d20adea06529396d2ab75",
+    "semantic_hash": "bfd5cdbc049d20adea06529396d2ab75"
+  },
+  "AutoMarket.Core/AutoMarket.Core.csproj": {
+    "mtime": 1783989751.6873171,
+    "ast_hash": "46b0780bd56312ea2d1bab391f179e89",
+    "semantic_hash": "46b0780bd56312ea2d1bab391f179e89"
+  },
+  "AutoMarket.Core/Entities/Anuncio.cs": {
+    "mtime": 1784067124.0956404,
+    "ast_hash": "f6945d06ac32e70c4bd0291412b550ae",
+    "semantic_hash": "f6945d06ac32e70c4bd0291412b550ae"
+  },
+  "AutoMarket.Core/Interfaces/IAnuncioRepository.cs": {
+    "mtime": 1784060769.5349755,
+    "ast_hash": "9cc15f19d9197e516be1e9a666afaa5c",
+    "semantic_hash": "9cc15f19d9197e516be1e9a666afaa5c"
+  },
+  "AutoMarket.Core/bin/Debug/net10.0/AutoMarket.Core.deps.json": {
+    "mtime": 1784041287.7397244,
+    "ast_hash": "abbc2cecfbf788eabb0e62f6c53752b2",
+    "semantic_hash": "abbc2cecfbf788eabb0e62f6c53752b2"
+  },
+  "AutoMarket.Core/obj/AutoMarket.Core.csproj.nuget.dgspec.json": {
+    "mtime": 1783989752.2947893,
+    "ast_hash": "38f9cc482375099d62f2bf691c4210b4",
+    "semantic_hash": "38f9cc482375099d62f2bf691c4210b4"
+  },
+  "AutoMarket.Core/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1783997173.4164557,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": "8479efdf06e2d26e053d27ffa6964185"
+  },
+  "AutoMarket.Core/obj/Debug/net10.0/AutoMarket.Core.AssemblyInfo.cs": {
+    "mtime": 1784161991.2584918,
+    "ast_hash": "283b1edd0981cf15d0d63ea7c26f4a1b",
+    "semantic_hash": "283b1edd0981cf15d0d63ea7c26f4a1b"
+  },
+  "AutoMarket.Core/obj/Debug/net10.0/AutoMarket.Core.GlobalUsings.g.cs": {
+    "mtime": 1783997173.320217,
+    "ast_hash": "9706b2dbf69f7db452e8b0d5baf54dcf",
+    "semantic_hash": "9706b2dbf69f7db452e8b0d5baf54dcf"
+  },
+  "AutoMarket.Core/obj/project.assets.json": {
+    "mtime": 1783989752.2722192,
+    "ast_hash": "f9e27292f2e7155f196af78763ed776f",
+    "semantic_hash": "f9e27292f2e7155f196af78763ed776f"
+  },
+  "AutoMarket.Infrastructure/AutoMarket.Infrastructure.csproj": {
+    "mtime": 1783994767.0857306,
+    "ast_hash": "4d9151cbe4f68b570c4c2f5d8bcbef27",
+    "semantic_hash": "4d9151cbe4f68b570c4c2f5d8bcbef27"
+  },
+  "AutoMarket.Infrastructure/Data/ApplicationDbContext.cs": {
+    "mtime": 1783994986.3495243,
+    "ast_hash": "0712b5fc8d74006a2377a427a44a6e18",
+    "semantic_hash": "0712b5fc8d74006a2377a427a44a6e18"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260714025801_MigracionInicial.Designer.cs": {
+    "mtime": 1783997881.5368414,
+    "ast_hash": "4491db29ff7383c621479fd44b2eb650",
+    "semantic_hash": "4491db29ff7383c621479fd44b2eb650"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260714025801_MigracionInicial.cs": {
+    "mtime": 1783997881.5368414,
+    "ast_hash": "f15d70b589987f55f25b770b33c61bdc",
+    "semantic_hash": "f15d70b589987f55f25b770b33c61bdc"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260714223637_AgregarPublicarAlGuardar.Designer.cs": {
+    "mtime": 1784068597.2751288,
+    "ast_hash": "072305043ee858c947c31c02caab9982",
+    "semantic_hash": "072305043ee858c947c31c02caab9982"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260714223637_AgregarPublicarAlGuardar.cs": {
+    "mtime": 1784068597.2751288,
+    "ast_hash": "848feafe9860472f4804be2a6e40afcc",
+    "semantic_hash": "848feafe9860472f4804be2a6e40afcc"
+  },
+  "AutoMarket.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs": {
+    "mtime": 1784068597.276127,
+    "ast_hash": "feca018140ce3746a1f9d44a6ca0cb6d",
+    "semantic_hash": "feca018140ce3746a1f9d44a6ca0cb6d"
+  },
+  "AutoMarket.Infrastructure/Repositories/AnuncioRepository.cs": {
+    "mtime": 1784066645.6360643,
+    "ast_hash": "224bdc0e0ebb77b2a59b29ff6bef2c3a",
+    "semantic_hash": "224bdc0e0ebb77b2a59b29ff6bef2c3a"
+  },
+  "AutoMarket.Infrastructure/bin/Debug/net10.0/AutoMarket.Infrastructure.deps.json": {
+    "mtime": 1784041288.2116303,
+    "ast_hash": "5236af19b8d8fbcbbf229b63e37931a5",
+    "semantic_hash": "5236af19b8d8fbcbbf229b63e37931a5"
+  },
+  "AutoMarket.Infrastructure/bin/Debug/net10.0/AutoMarket.Infrastructure.runtimeconfig.json": {
+    "mtime": 1784041288.2416382,
+    "ast_hash": "5e2fec3a44baa37dd9b51c63a09513c6",
+    "semantic_hash": "5e2fec3a44baa37dd9b51c63a09513c6"
+  },
+  "AutoMarket.Infrastructure/bin/Debug/net10.0/BuildHost-netcore/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.deps.json": {
+    "mtime": 1763421306.0,
+    "ast_hash": "6a002d69baf7b85bfe11c404487f1905",
+    "semantic_hash": "6a002d69baf7b85bfe11c404487f1905"
+  },
+  "AutoMarket.Infrastructure/bin/Debug/net10.0/BuildHost-netcore/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.runtimeconfig.json": {
+    "mtime": 1763421306.0,
+    "ast_hash": "4a59cbd5a00293f28ad2649fdda570f9",
+    "semantic_hash": "4a59cbd5a00293f28ad2649fdda570f9"
+  },
+  "AutoMarket.Infrastructure/obj/AutoMarket.Infrastructure.csproj.nuget.dgspec.json": {
+    "mtime": 1783997172.6736972,
+    "ast_hash": "1c8859d9865a0d5bab2ccd170138a0b2",
+    "semantic_hash": "1c8859d9865a0d5bab2ccd170138a0b2"
+  },
+  "AutoMarket.Infrastructure/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
+    "mtime": 1783997763.3866208,
+    "ast_hash": "8479efdf06e2d26e053d27ffa6964185",
+    "semantic_hash": "8479efdf06e2d26e053d27ffa6964185"
+  },
+  "AutoMarket.Infrastructure/obj/Debug/net10.0/AutoMarket.Infrastructure.AssemblyInfo.cs": {
+    "mtime": 1784161991.6388652,
+    "ast_hash": "bc3161f9e44f71203b151c77b4279a38",
+    "semantic_hash": "bc3161f9e44f71203b151c77b4279a38"
+  },
+  "AutoMarket.Infrastructure/obj/Debug/net10.0/AutoMarket.Infrastructure.GlobalUsings.g.cs": {
+    "mtime": 1783997173.2752004,
+    "ast_hash": "9706b2dbf69f7db452e8b0d5baf54dcf",
+    "semantic_hash": "9706b2dbf69f7db452e8b0d5baf54dcf"
+  },
+  "AutoMarket.Infrastructure/obj/project.assets.json": {
+    "mtime": 1783997172.6705558,
+    "ast_hash": "016694eb616ce75dec57a5e4598485bc",
+    "semantic_hash": "016694eb616ce75dec57a5e4598485bc"
+  },
+  "AutoMarketRD.sln": {
+    "mtime": 1783989777.5914693,
+    "ast_hash": "a9c934fe97882e4017663f3aaabcc53b",
+    "semantic_hash": "a9c934fe97882e4017663f3aaabcc53b"
+  }
+}

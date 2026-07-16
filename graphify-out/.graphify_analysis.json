@@ -1,0 +1,325 @@
+{
+  "communities": {
+    "0": [
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_down",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_up",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_cs_migrationbuilder",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_cs_modelbuilder",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_down",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_up",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_cs_migrationbuilder",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_cs_modelbuilder",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_buildmodel",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_cs_modelbuilder",
+      "csharp_namespace:5f76d2503f964bd1",
+      "migration",
+      "modelsnapshot"
+    ],
+    "1": [
+      "automarket_api_controllers_anuncioscontroller",
+      "automarket_api_program",
+      "automarket_application_dtos_anunciodto",
+      "automarket_application_dtos_anunciodto_automarket_application_dtos_anunciodto",
+      "automarket_application_dtos_anunciodto_cs_list",
+      "automarket_application_dtos_anunciolistadodto",
+      "automarket_application_dtos_anunciolistadodto_automarket_application_dtos_anunciolistadodto",
+      "automarket_application_dtos_anunciolistadodto_cs_list",
+      "automarket_application_services_anuncioservice",
+      "automarket_core_entities_anuncio",
+      "automarket_core_interfaces_ianunciorepository",
+      "automarket_infrastructure_data_applicationdbcontext",
+      "automarket_infrastructure_repositories_anunciorepository",
+      "csharp_namespace:12cd6872238ab67d",
+      "csharp_namespace:76991e43111dfec7",
+      "csharp_namespace:805b5bdaff6adefe",
+      "csharp_namespace:ab39f75025ee78b4",
+      "csharp_namespace:b65da4f67d97e4b1",
+      "csharp_namespace:d7f3e5f2274791ac",
+      "csharp_namespace:d93ef138b821c8dc"
+    ],
+    "2": [
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller",
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller_actualizaranuncio",
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller_crearanuncio",
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller_obtenerporid",
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller_obtenertodoslosanuncios",
+      "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller_publicar",
+      "automarket_api_controllers_anuncioscontroller_cs_task",
+      "automarket_application_dtos_anunciocreatedto",
+      "automarket_application_dtos_anunciocreatedto_automarket_application_dtos_anunciocreatedto",
+      "automarket_application_dtos_anunciocreatedto_cs_list",
+      "automarket_application_dtos_anuncioupdatedto",
+      "automarket_application_dtos_anuncioupdatedto_automarket_application_dtos_anuncioupdatedto",
+      "automarket_application_dtos_anuncioupdatedto_cs_list",
+      "controllerbase",
+      "httpget",
+      "httppatch",
+      "httppost",
+      "httpput",
+      "iactionresult"
+    ],
+    "3": [
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_actualizarinfo",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_agregarfotos",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_marcarcomopublicado",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_publicar",
+      "automarket_core_entities_anuncio_cs_ireadonlycollection",
+      "automarket_core_entities_anuncio_cs_list",
+      "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_actualizarasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_agregarasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_guardarcambiosasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenerporidasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenertodoslosanuncios",
+      "automarket_infrastructure_repositories_anunciorepository_cs_ireadonlycollection",
+      "automarket_infrastructure_repositories_anunciorepository_cs_task",
+      "datetime",
+      "dbcontext",
+      "dbset"
+    ],
+    "4": [
+      "automarket_api_automarket_api",
+      "automarket_api_automarket_api_csproj_framework_net10_0",
+      "automarket_api_automarket_api_csproj_nuget_microsoft_entityframeworkcore_design",
+      "automarket_application_automarket_application",
+      "automarket_application_automarket_application_csproj_framework_net10_0",
+      "automarket_application_automarket_application_csproj_sdk_microsoft_net_sdk",
+      "automarket_core_automarket_core",
+      "automarket_core_automarket_core_csproj_framework_net10_0",
+      "automarket_core_automarket_core_csproj_sdk_microsoft_net_sdk",
+      "automarket_infrastructure_automarket_infrastructure",
+      "automarket_infrastructure_automarket_infrastructure_csproj_framework_net10_0",
+      "automarket_infrastructure_automarket_infrastructure_csproj_nuget_microsoft_entityframeworkcore_design",
+      "automarket_infrastructure_automarket_infrastructure_csproj_sdk_microsoft_net_sdk",
+      "automarketrd",
+      "nuget_microsoft_aspnetcore_openapi",
+      "nuget_npgsql_entityframeworkcore_postgresql",
+      "nuget_scalar_aspnetcore",
+      "sdk_microsoft_net_sdk_web"
+    ],
+    "5": [
+      "automarket_api_properties_launchsettings",
+      "automarket_api_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "automarket_api_properties_launchsettings_http_applicationurl",
+      "automarket_api_properties_launchsettings_http_commandname",
+      "automarket_api_properties_launchsettings_http_dotnetrunmessages",
+      "automarket_api_properties_launchsettings_http_environmentvariables",
+      "automarket_api_properties_launchsettings_http_launchbrowser",
+      "automarket_api_properties_launchsettings_https_applicationurl",
+      "automarket_api_properties_launchsettings_https_commandname",
+      "automarket_api_properties_launchsettings_https_dotnetrunmessages",
+      "automarket_api_properties_launchsettings_https_environmentvariables",
+      "automarket_api_properties_launchsettings_https_launchbrowser",
+      "automarket_api_properties_launchsettings_profiles",
+      "automarket_api_properties_launchsettings_profiles_http",
+      "automarket_api_properties_launchsettings_profiles_https",
+      "automarket_api_properties_launchsettings_schema"
+    ],
+    "6": [
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice",
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice_actualizarasync",
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice_crearanuncioasync",
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice_obteneranuncioporidasync",
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice_obtenertodoslosanuncios",
+      "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice_publicaranuncioasync",
+      "automarket_application_services_anuncioservice_cs_ireadonlycollection",
+      "automarket_application_services_anuncioservice_cs_task",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_actualizarasync",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_agregarasync",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_guardarcambiosasync",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_obtenerporidasync",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_obtenertodoslosanuncios",
+      "automarket_core_interfaces_ianunciorepository_cs_ireadonlycollection",
+      "automarket_core_interfaces_ianunciorepository_cs_task"
+    ],
+    "7": [
+      "automarket_api_obj_debug_net10_0_automarket_api_assemblyinfo"
+    ],
+    "8": [
+      "automarket_api_obj_debug_net10_0_automarket_api_globalusings_g"
+    ],
+    "9": [
+      "automarket_api_obj_debug_net10_0_automarket_api_mvcapplicationpartsassemblyinfo"
+    ],
+    "10": [
+      "automarket_api_obj_debug_net10_0_netcoreapp_version_v10_0_assemblyattributes"
+    ],
+    "11": [
+      "automarket_application_obj_debug_net10_0_automarket_application_assemblyinfo"
+    ],
+    "12": [
+      "automarket_application_obj_debug_net10_0_automarket_application_globalusings_g"
+    ],
+    "13": [
+      "automarket_application_obj_debug_net10_0_netcoreapp_version_v10_0_assemblyattributes"
+    ],
+    "14": [
+      "automarket_core_obj_debug_net10_0_automarket_core_assemblyinfo"
+    ],
+    "15": [
+      "automarket_core_obj_debug_net10_0_automarket_core_globalusings_g"
+    ],
+    "16": [
+      "automarket_core_obj_debug_net10_0_netcoreapp_version_v10_0_assemblyattributes"
+    ],
+    "17": [
+      "automarket_infrastructure_obj_debug_net10_0_automarket_infrastructure_assemblyinfo"
+    ],
+    "18": [
+      "automarket_infrastructure_obj_debug_net10_0_automarket_infrastructure_globalusings_g"
+    ],
+    "19": [
+      "automarket_infrastructure_obj_debug_net10_0_netcoreapp_version_v10_0_assemblyattributes"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09,
+    "1": 0.14210526315789473,
+    "2": 0.15789473684210525,
+    "3": 0.16374269005847952,
+    "4": 0.1437908496732026,
+    "5": 0.13333333333333333,
+    "6": 0.25833333333333336,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0
+  },
+  "gods": [
+    {
+      "id": "automarket_core_entities_anuncio_automarket_core_entities_anuncio",
+      "label": "Anuncio",
+      "degree": 17
+    },
+    {
+      "id": "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller",
+      "label": "AnunciosController",
+      "degree": 8
+    },
+    {
+      "id": "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice",
+      "label": "AnuncioService",
+      "degree": 8
+    },
+    {
+      "id": "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository",
+      "label": "IAnuncioRepository",
+      "degree": 8
+    },
+    {
+      "id": "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository",
+      "label": "AnuncioRepository",
+      "degree": 8
+    },
+    {
+      "id": "automarket_api_properties_launchsettings_profiles_http",
+      "label": "http",
+      "degree": 6
+    },
+    {
+      "id": "automarket_api_properties_launchsettings_profiles_https",
+      "label": "https",
+      "degree": 6
+    },
+    {
+      "id": "csharp_namespace:805b5bdaff6adefe",
+      "label": "AutoMarket.Application.DTOs",
+      "degree": 6
+    },
+    {
+      "id": "csharp_namespace:76991e43111dfec7",
+      "label": "AutoMarket.Core.Entities",
+      "degree": 6
+    },
+    {
+      "id": "csharp_namespace:b65da4f67d97e4b1",
+      "label": "AutoMarket.Infrastructure.Data",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "AnunciosController",
+      "target": "AnuncioService",
+      "source_files": [
+        "AutoMarket.API/Controllers/AnunciosController.cs",
+        "AutoMarket.Application/Services/AnuncioService.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "AnuncioRepository",
+      "target": "IAnuncioRepository",
+      "source_files": [
+        "AutoMarket.Infrastructure/Repositories/AnuncioRepository.cs",
+        "AutoMarket.Core/Interfaces/IAnuncioRepository.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "AnuncioService",
+      "target": "IAnuncioRepository",
+      "source_files": [
+        "AutoMarket.Application/Services/AnuncioService.cs",
+        "AutoMarket.Core/Interfaces/IAnuncioRepository.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "ApplicationDbContext",
+      "target": "Anuncio",
+      "source_files": [
+        "AutoMarket.Infrastructure/Data/ApplicationDbContext.cs",
+        "AutoMarket.Core/Entities/Anuncio.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "AnuncioRepository",
+      "target": "ApplicationDbContext",
+      "source_files": [
+        "AutoMarket.Infrastructure/Repositories/AnuncioRepository.cs",
+        "AutoMarket.Infrastructure/Data/ApplicationDbContext.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

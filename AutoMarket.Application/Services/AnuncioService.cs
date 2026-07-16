@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using AutoMarket.Application.DTOs;
 using AutoMarket.Core.Entities;
 using AutoMarket.Core.Interfaces;
@@ -120,5 +121,41 @@ public class AnuncioService
 
         await _repository.ActualizarAsync(anuncio);
         return true;
+    }
+
+    public async Task SubirImagenesAsync(AnuncioImagenUploadDto dto)
+    {
+        var anuncio = await _repository.ObtenerPorIdAsync(dto.AnuncioId);
+        if (anuncio == null){ throw new KeyNotFoundException("El anuncio no existe");}
+
+        var rutasGuardadas = new List<string>();
+
+        foreach (var imagen in dto.Imagenes)
+        {
+            if (imagen.Length > 5 * 1024 * 1024) 
+            {throw new ArgumentException("Imagen excede el tamaño maximo");}
+
+            if (imagen.ContentType != "image/png" && imagen.ContentType != "image/jpeg")
+            { throw new ArgumentException("Formato no permitido"); } 
+
+            var extension = Path.GetExtension(imagen.FileName);
+            var nombreUnico = $"{Guid.NewGuid()}{extension}";
+
+            var rutaFisica = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", nombreUnico);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(rutaFisica)!);
+
+            using (var stream = new FileStream(rutaFisica, FileMode.Create))
+            {
+                await imagen.CopyToAsync(stream);
+            }
+
+            rutasGuardadas.Add($"/uploads/{nombreUnico}");
+        }
+
+        anuncio.AgregarFotos(rutasGuardadas);
+
+        await _repository.ActualizarAsync(anuncio);
+        
     }
 }

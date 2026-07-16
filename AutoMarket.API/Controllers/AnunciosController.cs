@@ -61,4 +61,42 @@ public class AnunciosController : ControllerBase
         if (!publicado) return NotFound($"No se encontró el anuncio {id}.");
        return Ok(publicado);
     }
+
+    [HttpPost("{id}/imagenes")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> SubirImagenes(int id, [FromForm] List<IFormFile> imagenes)
+    {
+        var dto = new AnuncioImagenUploadDto
+        {
+            AnuncioId = id,
+            Imagenes = imagenes
+        };
+
+        if (imagenes == null || !imagenes.Any())
+        return BadRequest(new { error = "Debes seleccionar al menos una imagen." });
+
+        if (imagenes.Count > 10)
+            return BadRequest(new { error = "No puedes subir más de 10 imágenes en una sola petición." });
+
+        try
+        {
+            // 2. Le pasamos el DTO completo a tu servicio ultra seguro
+            await _anuncioService.SubirImagenesAsync(dto);
+            
+            return Ok(new { mensaje = "Imágenes subidas y asociadas al anuncio correctamente." });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+
+    }
 }

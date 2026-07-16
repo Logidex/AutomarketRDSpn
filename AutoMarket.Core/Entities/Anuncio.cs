@@ -77,7 +77,11 @@ public class Anuncio
         if (rutasFotos.Count < 5 || rutasFotos.Count > 10)
             throw new ArgumentException("El anuncio debe tener entre 5 a 10 fotos según las reglas de publicación.");
 
-        _fotos.Clear();
+        if (_fotos.Count + rutasFotos.Count > 10)
+        {
+            throw new InvalidOperationException($"No se pueden agregar estas imágenes. El anuncio ya tiene {_fotos.Count} fotos y el límite máximo total es de 10.");
+        }
+
         _fotos.AddRange(rutasFotos);
         UpdatedAt = DateTime.UtcNow;
     }

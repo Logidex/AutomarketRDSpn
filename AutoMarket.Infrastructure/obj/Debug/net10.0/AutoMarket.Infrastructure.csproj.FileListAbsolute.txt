@@ -17,3 +17,4 @@ C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Infrastructure\obj\Debug\net
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Infrastructure\obj\Debug\net10.0\AutoMarket.Infrastructure.pdb
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Infrastructure\obj\Debug\net10.0\AutoMarket.Infrastructure.genruntimeconfig.cache
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Infrastructure\obj\Debug\net10.0\ref\AutoMarket.Infrastructure.dll
+C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Infrastructure\obj\Debug\net10.0\AutoMarket.Infrastructure.sourcelink.json

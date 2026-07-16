@@ -21,8 +21,8 @@ var app = builder.Build();
 app.MapOpenApi();
 app.MapScalarApiReference();
 
+app.UseStaticFiles();
 // 3. Activa el mapeo de las URLs (como /api/anuncios)
 app.MapControllers();
-
 // 4. Enciende el servidor y lo deja escuchando
 app.Run();

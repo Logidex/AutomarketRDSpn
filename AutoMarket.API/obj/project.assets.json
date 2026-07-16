@@ -696,7 +696,10 @@
         },
         "runtime": {
           "bin/placeholder/AutoMarket.Application.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "AutoMarket.Core/1.0.0": {
         "type": "project",

@@ -13,3 +13,4 @@ C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Application\obj\Debug\net10.
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Application\obj\Debug\net10.0\refint\AutoMarket.Application.dll
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Application\obj\Debug\net10.0\AutoMarket.Application.pdb
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Application\obj\Debug\net10.0\ref\AutoMarket.Application.dll
+C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Application\obj\Debug\net10.0\AutoMarket.Application.sourcelink.json

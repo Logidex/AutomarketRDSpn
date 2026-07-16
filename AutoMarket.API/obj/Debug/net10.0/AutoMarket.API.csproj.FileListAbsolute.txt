@@ -127,3 +127,4 @@ C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.API\obj\Debug\net10.0\refint
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.API\obj\Debug\net10.0\AutoMarket.API.pdb
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.API\obj\Debug\net10.0\AutoMarket.API.genruntimeconfig.cache
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.API\obj\Debug\net10.0\ref\AutoMarket.API.dll
+C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.API\obj\Debug\net10.0\AutoMarket.API.sourcelink.json

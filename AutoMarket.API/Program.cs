@@ -1,6 +1,7 @@
 using AutoMarket.Application.Services;
 using AutoMarket.Core.Interfaces;
 using AutoMarket.Infrastructure.Repositories;
+using AutoMarket.Infrastructure.Services;
 using AutoMarket.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // 1. Le decimos al servidor que active el uso de Controladores
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IAlmacenadorArchivos, AlmacenadorS3>();
 builder.Services.AddScoped<AnuncioService>();
 builder.Services.AddScoped<IAnuncioRepository, AnuncioRepository>();
 
@@ -21,7 +23,6 @@ var app = builder.Build();
 app.MapOpenApi();
 app.MapScalarApiReference();
 
-app.UseStaticFiles();
 // 3. Activa el mapeo de las URLs (como /api/anuncios)
 app.MapControllers();
 // 4. Enciende el servidor y lo deja escuchando

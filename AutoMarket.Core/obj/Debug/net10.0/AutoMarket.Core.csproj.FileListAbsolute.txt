@@ -10,3 +10,4 @@ C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Core\obj\Debug\net10.0\refin
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Core\obj\Debug\net10.0\AutoMarket.Core.pdb
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Core\obj\Debug\net10.0\ref\AutoMarket.Core.dll
 C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Core\obj\Debug\net10.0\AutoMarket.Core.sourcelink.json
+C:\Users\erick\Documents\AutoMarketRDspn\AutoMarket.Core\obj\Debug\net10.0\AutoMarket.Core.csproj.AssemblyReference.cache

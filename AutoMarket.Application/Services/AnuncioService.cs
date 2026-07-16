@@ -9,11 +9,13 @@ namespace AutoMarket.Application.Services;
 public class AnuncioService
 {
     private readonly IAnuncioRepository _repository;
+    private readonly IAlmacenadorArchivos _almacenadorArchivos;
 
     // Inyección de dependencias: El servicio exige el contrato para poder funcionar
-    public AnuncioService(IAnuncioRepository repository)
+    public AnuncioService(IAnuncioRepository repository, IAlmacenadorArchivos almacenadorArchivos)
     {
         _repository = repository;
+        _almacenadorArchivos = almacenadorArchivos;
     }
 
     public async Task CrearAnuncioAsync(AnuncioCreateDto dto)
@@ -114,7 +116,7 @@ public class AnuncioService
     public async Task<bool> PublicarAnuncioAsync(int id)
     {
         var anuncio = await _repository.ObtenerPorIdAsync(id);
-        
+
         if (anuncio == null) return false;
 
         anuncio.MarcarComoPublicado();
@@ -125,37 +127,32 @@ public class AnuncioService
 
     public async Task SubirImagenesAsync(AnuncioImagenUploadDto dto)
     {
-        var anuncio = await _repository.ObtenerPorIdAsync(dto.AnuncioId);
-        if (anuncio == null){ throw new KeyNotFoundException("El anuncio no existe");}
+        var _anuncio = await _repository.ObtenerPorIdAsync(dto.AnuncioId);
+        if (_anuncio == null) throw new KeyNotFoundException("El anuncio no existe");
 
         var rutasGuardadas = new List<string>();
 
         foreach (var imagen in dto.Imagenes)
         {
-            if (imagen.Length > 5 * 1024 * 1024) 
-            {throw new ArgumentException("Imagen excede el tamaño maximo");}
+            if (imagen.Length > 5 * 1024 * 1024)
+                throw new ArgumentException("Imagen excede el tamaño máximo");
 
             if (imagen.ContentType != "image/png" && imagen.ContentType != "image/jpeg")
-            { throw new ArgumentException("Formato no permitido"); } 
+                throw new ArgumentException("Formato no permitido");
 
             var extension = Path.GetExtension(imagen.FileName);
             var nombreUnico = $"{Guid.NewGuid()}{extension}";
 
-            var rutaFisica = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", nombreUnico);
-
-            Directory.CreateDirectory(Path.GetDirectoryName(rutaFisica)!);
-
-            using (var stream = new FileStream(rutaFisica, FileMode.Create))
+            // 🚨 LA MAGIA: Abrimos el flujo de bytes del archivo y se lo mandamos a S3
+            using (var stream = imagen.OpenReadStream())
             {
-                await imagen.CopyToAsync(stream);
+                var urlPublicaAws = await _almacenadorArchivos.GuardarArchivoAsync(stream, nombreUnico, imagen.ContentType);
+                rutasGuardadas.Add(urlPublicaAws); // Guarda la URL completa: https://...
             }
-
-            rutasGuardadas.Add($"/uploads/{nombreUnico}");
         }
 
-        anuncio.AgregarFotos(rutasGuardadas);
+        _anuncio.AgregarFotos(rutasGuardadas);
 
-        await _repository.ActualizarAsync(anuncio);
-        
+        await _repository.ActualizarAsync(_anuncio);
     }
 }

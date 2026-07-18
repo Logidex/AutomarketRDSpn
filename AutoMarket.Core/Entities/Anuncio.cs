@@ -86,8 +86,12 @@ public class Anuncio
         UpdatedAt = DateTime.UtcNow;
     }
 
+    // 1. Unificamos la lógica aquí. Esta es la ÚNICA forma de publicar.
     public void Publicar()
     {
+        if (Estado == "Publicado") 
+            throw new InvalidOperationException("El anuncio ya está publicado.");
+
         if (_fotos.Count < 5)
             throw new InvalidOperationException("Imposible publicar: no se ha cumplido el requisito mínimo de fotos.");
 
@@ -96,20 +100,10 @@ public class Anuncio
     }
 
     public void ActualizarInfo(
-        string marca,
-        string modelo,
-        string tipoVehiculo,
-        string colorExterior,
-        string colorInterior,
-        int anio,
-        decimal precio,
-        int kilometraje,
-        string transmision,
-        string combustible,
-        List<string> accesorios,
-        string ubicacion,
-        string descripcion,
-        bool publicarAlGuardar)
+        string marca, string modelo, string tipoVehiculo, string colorExterior,
+        string colorInterior, int anio, decimal precio, int kilometraje,
+        string transmision, string combustible, List<string> accesorios,
+        string ubicacion, string descripcion, bool publicarAlGuardar)
     {
         if (string.IsNullOrWhiteSpace(marca) || string.IsNullOrWhiteSpace(modelo))
             throw new ArgumentException("La marca y el modelo son obligatorios.");
@@ -133,14 +127,29 @@ public class Anuncio
         Accesorios = accesorios ?? new List<string>();
         Ubicacion = ubicacion;
         Descripcion = descripcion;
-        Estado = publicarAlGuardar ? "Publicado" : "Borrador";
+        
+        // 2. Corregimos la trampa de seguridad.
+        // Por defecto, al editarlo, se queda o pasa a ser un borrador.
+        Estado = "Borrador"; 
         UpdatedAt = DateTime.UtcNow;
+
+        // 3. Si pidió publicarlo al guardar, reutilizamos nuestra regla de negocio blindada.
+        if (publicarAlGuardar)
+        {
+            // Esto lanzará la excepción si no tiene las 5 fotos, protegiendo tus reglas.
+            Publicar(); 
+        }
     }
 
-    public void MarcarComoPublicado()
+    public void EliminarFoto(string urlFoto)
     {
-        if (Estado == "Publicado") throw new InvalidOperationException("El anuncio ya está publicado.");
-        Estado = "Publicado";
+        if (string.IsNullOrWhiteSpace(urlFoto))
+            throw new ArgumentException("La URL de la foto no puede estar vacía.");
+
+        if (!_fotos.Contains(urlFoto))
+            throw new KeyNotFoundException("La foto especificada no pertenece a este anuncio.");
+
+        _fotos.Remove(urlFoto);
         UpdatedAt = DateTime.UtcNow;
     }
 }

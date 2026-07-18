@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoMarket.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67340723493ebdfa035f48178b10d1ba7b17f17d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+840d90eb84fb8c3b5e882cebecd1bbd514ef3c07")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoMarket.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoMarket.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

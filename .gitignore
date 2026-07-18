@@ -1,2 +1,13 @@
+# Carpetas de compilación de .NET
 bin/
 obj/
+
+# Herramientas de análisis locales
+graphify-out/
+.graphify_analysis.json
+
+# Archivos de configuración de usuario de VS Code
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates

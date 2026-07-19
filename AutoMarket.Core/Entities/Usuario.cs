@@ -7,9 +7,74 @@ public class Usuario
     public string Apellido { get; private set; } = null!;
     public string Email { get; private set; } = null!;
     public string PasswordHash { get; private set; } = null!;
-    public bool EmailConfirmado { get; private set; }
+    public string? TelefonoPersonal { get; private set; }
     public string Rol { get; private set; } = null!;
-    public List<Anuncio> _anuncios = new();
-    public IReadOnlyCollection<string> Anuncios => (IReadOnlyCollection<string>)_anuncios.AsReadOnly();
-    
+    public bool EmailConfirmado { get; private set; }
+    public PerfilDealer? PerfilDealer { get; private set; }
+    private readonly List<Anuncio> _anuncios = new();
+    public IReadOnlyCollection<Anuncio> Anuncios => _anuncios.AsReadOnly(); 
+
+    // ==========================================
+    // 1. CONSTRUCTOR PARA EF CORE
+    // ==========================================
+    private Usuario() { }
+
+    // ==========================================
+    // 2. CONSTRUCTOR DE DOMINIO MODIFICADO
+    // ==========================================
+
+    public Usuario(
+        string nombre, 
+        string apellido, 
+        string email, 
+        string passwordHash,  
+        string? telefonoPersonal, 
+        string rol,
+        bool emailConfirmado = false)
+    {
+
+        if (string.IsNullOrWhiteSpace(nombre))
+            throw new ArgumentException("El nombre es obligatorio.", nameof(nombre));
+
+        if (string.IsNullOrWhiteSpace(apellido))
+            throw new ArgumentException("El apellido es obligatorio.", nameof(apellido));
+
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("El correo electrónico es obligatorio.", nameof(email));
+            
+        if (!email.Contains("@")) // Validación básica de estructura de correo
+            throw new ArgumentException("El formato del correo electrónico es inválido.", nameof(email));
+
+        if (string.IsNullOrWhiteSpace(passwordHash))
+            throw new ArgumentException("La contraseña es obligatoria.", nameof(passwordHash));
+
+        if (string.IsNullOrWhiteSpace(rol))
+            throw new ArgumentException("El rol es obligatorio.", nameof(rol));
+
+        if (rol == "Admin")
+            throw new InvalidOperationException("No está permitido registrar un administrador por la vía pública.");
+
+        if (rol != "Vendedor" && rol != "Dealer" && rol != "Comprador")
+            throw new ArgumentException($"El rol '{rol}' no es válido para un registro de usuario.");
+
+        Nombre = nombre;
+        Apellido = apellido;
+        Email = email.ToLowerInvariant().Trim();
+        PasswordHash = passwordHash;
+        TelefonoPersonal = telefonoPersonal;
+        Rol = rol;
+        EmailConfirmado = emailConfirmado;
+    }
+
+    // MÉTODO DE FÁBRICA ESTÁTICO: Solo accesible internamente por el sistema
+    public static Usuario CrearAdministradorInterno(string nombre, string apellido, string email, string passwordHash)
+    {
+        var nuevoAdmin = new Usuario();
+        
+        // Asignación directa saltándose las restricciones del flujo público
+        nuevoAdmin.Nombre = nombre;
+        nuevoAdmin.Rol = "Admin"; 
+        
+        return nuevoAdmin;
+    }
 }

@@ -21,6 +21,7 @@ public class AnuncioService
     public async Task CrearAnuncioAsync(AnuncioCreateDto dto)
     {
         var nuevoAnuncio = new Anuncio(
+            usuarioId: dto.UsuarioId,
             marca: dto.Marca,
             modelo: dto.Modelo,
             tipoVehiculo: dto.TipoVehiculo,
@@ -119,7 +120,7 @@ public class AnuncioService
 
         if (anuncio == null) return false;
 
-        anuncio.MarcarComoPublicado();
+        anuncio.Publicar();
 
         await _repository.ActualizarAsync(anuncio);
         return true;

@@ -14,24 +14,37 @@ public class Anuncio
     public int Kilometraje { get; private set; }
     public string Transmision { get; private set; } = null!;
     public string Combustible { get; private set; } = null!;
-
-    // Lista persistida mediante Value Converter (ver paso abajo)
-    public List<string> Accesorios { get; private set; } = new();
     public string Ubicacion { get; private set; } = null!;
     public string Descripcion { get; private set; } = null!;
     public string Estado { get; private set; } = null!;
     public bool PublicarAlGuardar { get; private set; }
 
-    // EF Core mapeará esto automáticamente si usas el estándar de nombres _propiedad
-    private readonly List<string> _fotos = new();
-    public IReadOnlyCollection<string> Fotos => _fotos.AsReadOnly();
-
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
+    
+    // El ID del creador (sea Dealer o Usuario Común)
+    public int UsuarioId { get; private set; } 
+    
+    // Propiedad de navegación hacia el padre
+    public Usuario Usuario { get; private set; } = null!;
 
-    protected Anuncio() { }
+    // ==========================================
+    // ENCAPSULAMIENTO DE COLECCIONES
+    // ==========================================
+    public List<string> Accesorios { get; private set; } = new();
+    private readonly List<string> _fotos = new();
+    public IReadOnlyCollection<string> Fotos => _fotos.AsReadOnly(); 
 
+    // ==========================================
+    // 1. CONSTRUCTOR PARA EF CORE
+    // ==========================================
+    private Anuncio() { }
+
+    // ==========================================
+    // 2. CONSTRUCTOR DE DOMINIO MODIFICADO
+    // ==========================================
     public Anuncio(
+        int usuarioId,
         string marca,
         string modelo,
         string tipoVehiculo,
@@ -46,6 +59,9 @@ public class Anuncio
         string ubicacion,
         string descripcion)
     {
+        if (usuarioId <= 0)
+            throw new ArgumentException("El ID de usuario/dealer es inválido.");
+
         if (string.IsNullOrWhiteSpace(marca) || string.IsNullOrWhiteSpace(modelo))
             throw new ArgumentException("La marca y el modelo son obligatorios.");
 
@@ -55,6 +71,7 @@ public class Anuncio
         if (anio < 1900 || anio > DateTime.UtcNow.Year + 1)
             throw new ArgumentException("Año de fabricación inválido.");
 
+        UsuarioId = usuarioId;
         Marca = marca;
         Modelo = modelo;
         TipoVehiculo = tipoVehiculo;
@@ -72,33 +89,38 @@ public class Anuncio
         CreatedAt = DateTime.UtcNow;
     }
 
+    // ==========================================
+    // 3. MÉTODO AGREGAR FOTOS OPTIMIZADO
+    // ==========================================
     public void AgregarFotos(List<string> rutasFotos)
     {
-        if (rutasFotos.Count < 5 || rutasFotos.Count > 10)
-            throw new ArgumentException("El anuncio debe tener entre 5 a 10 fotos según las reglas de publicación.");
+        if (rutasFotos == null || !rutasFotos.Any())
+            throw new ArgumentException("Debes proporcionar al menos una foto.");
 
         if (_fotos.Count + rutasFotos.Count > 10)
         {
-            throw new InvalidOperationException($"No se pueden agregar estas imágenes. El anuncio ya tiene {_fotos.Count} fotos y el límite máximo total es de 10.");
+            throw new InvalidOperationException($"Límite excedido. El anuncio ya tiene {_fotos.Count} fotos y el máximo total es 10.");
         }
 
         _fotos.AddRange(rutasFotos);
         UpdatedAt = DateTime.UtcNow;
     }
 
-    // 1. Unificamos la lógica aquí. Esta es la ÚNICA forma de publicar.
     public void Publicar()
     {
         if (Estado == "Publicado") 
             throw new InvalidOperationException("El anuncio ya está publicado.");
 
         if (_fotos.Count < 5)
-            throw new InvalidOperationException("Imposible publicar: no se ha cumplido el requisito mínimo de fotos.");
+            throw new InvalidOperationException("Imposible publicar: Un anuncio requiere un mínimo de 5 fotos.");
 
         Estado = "Publicado";
         UpdatedAt = DateTime.UtcNow;
     }
 
+    // ==========================================
+    // 4. ACTUALIZAR INFO (Manteniendo consistencia)
+    // ==========================================
     public void ActualizarInfo(
         string marca, string modelo, string tipoVehiculo, string colorExterior,
         string colorInterior, int anio, decimal precio, int kilometraje,
@@ -128,15 +150,11 @@ public class Anuncio
         Ubicacion = ubicacion;
         Descripcion = descripcion;
         
-        // 2. Corregimos la trampa de seguridad.
-        // Por defecto, al editarlo, se queda o pasa a ser un borrador.
         Estado = "Borrador"; 
         UpdatedAt = DateTime.UtcNow;
 
-        // 3. Si pidió publicarlo al guardar, reutilizamos nuestra regla de negocio blindada.
         if (publicarAlGuardar)
         {
-            // Esto lanzará la excepción si no tiene las 5 fotos, protegiendo tus reglas.
             Publicar(); 
         }
     }

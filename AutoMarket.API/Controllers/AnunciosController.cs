@@ -1,38 +1,49 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMarket.Application.DTOs;
 using AutoMarket.Application.Services;
-using AutoMarket.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace AutoMarket.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")] // Esto hace que la URL sea automáticamente "/api/anuncios"
+[Route("api/[controller]")]
 public class AnunciosController : ControllerBase
 {
     private readonly AnuncioService _anuncioService;
 
-    // Inyectamos el servicio para que el controlador pueda darle órdenes
     public AnunciosController(AnuncioService anuncioService)
     {
         _anuncioService = anuncioService;
     }
 
+    // ==========================================
+    // 1. CREAR: Necesitamos saber quién lo crea
+    // ==========================================
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CrearAnuncio([FromBody] AnuncioCreateDto dto)
     {
+        int usuarioId = ObtenerUsuarioIdDelToken();
+        
+        // Asignamos el ID del creador al DTO antes de enviarlo al servicio
+        dto.UsuarioId = usuarioId; 
+        
         await _anuncioService.CrearAnuncioAsync(dto);
-        return Ok("Anuncio creado correctamente.");
+        return Ok(new { mensaje = "Anuncio creado correctamente." });
     }
 
+    // ==========================================
+    // 2. OBTENER: Dejamos esto público (sin Authorize) 
+    // para que cualquier visitante vea la vitrina
+    // ==========================================
     [HttpGet("{id}")]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var anuncioDto = await _anuncioService.ObtenerAnuncioPorIdAsync(id);
 
         if (anuncioDto == null)
-        {
-            return NotFound(new { mensaje = $"El vehículo con ID {id} no fue encontrado en la base de datos." });
-        }
+            return NotFound(new { mensaje = $"El vehículo con ID {id} no fue encontrado." });
 
         return Ok(anuncioDto);
     }
@@ -41,62 +52,91 @@ public class AnunciosController : ControllerBase
     public async Task<IActionResult> ObtenerTodosLosAnuncios()
     {
         var anuncios = await _anuncioService.ObtenerTodosLosAnuncios();
-
         return Ok(anuncios);
     }
 
+    // ==========================================
+    // 3. ACTUALIZAR: Protegido y validando propiedad
+    // ==========================================
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> ActualizarAnuncio(int id, [FromBody] AnuncioUpdateDto updateDto)
     {
-        var resultado = await _anuncioService.ActualizarAsync(updateDto);
-        if (resultado == null) return NotFound($"El vehículo con ID {id} no fue encontrado.");
-        return Ok(resultado);
+        int usuarioId = ObtenerUsuarioIdDelToken();
 
+        // Le pasamos al servicio: "El usuario X quiere actualizar el anuncio Y"
+        var resultado = await _anuncioService.ActualizarAsync(id, usuarioId, updateDto);
+
+        if (resultado == null)
+            return NotFound(new { mensaje = "El vehículo no existe o no tienes permisos para editarlo." });
+
+        return Ok(resultado);
     }
 
+    // ==========================================
+    // 4. PUBLICAR: Añadimos Authorize
+    // ==========================================
     [HttpPatch("{id}/publicar")]
+    [Authorize] 
     public async Task<IActionResult> Publicar(int id)
     {
-        var publicado = await _anuncioService.PublicarAnuncioAsync(id);
-        if (!publicado) return NotFound($"No se encontró el anuncio {id}.");
-       return Ok(publicado);
+        int usuarioId = ObtenerUsuarioIdDelToken();
+        
+        // El servicio debe verificar que este usuarioId es el dueño del anuncio 'id'
+        var publicado = await _anuncioService.PublicarAnuncioAsync(id, usuarioId);
+        
+        if (!publicado) return NotFound(new { mensaje = "No se encontró el anuncio o no tienes permisos." });
+        
+        return Ok(new { mensaje = "Anuncio publicado con éxito." });
     }
 
+    // ==========================================
+    // 5. SUBIR IMÁGENES: Validación estricta
+    // ==========================================
     [HttpPost("{id}/imagenes")]
+    [Authorize]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> SubirImagenes(int id, [FromForm] List<IFormFile> imagenes)
     {
-        var dto = new AnuncioImagenUploadDto
-        {
-            AnuncioId = id,
-            Imagenes = imagenes
-        };
-
         if (imagenes == null || !imagenes.Any())
-        return BadRequest(new { error = "Debes seleccionar al menos una imagen." });
+            return BadRequest(new { error = "Debes seleccionar al menos una imagen." });
 
         if (imagenes.Count > 10)
             return BadRequest(new { error = "No puedes subir más de 10 imágenes en una sola petición." });
 
+        int usuarioId = ObtenerUsuarioIdDelToken();
+
+        var dto = new AnuncioImagenUploadDto
+        {
+            AnuncioId = id,
+            UsuarioId = usuarioId, // Pasamos el ID para verificar propiedad
+            Imagenes = imagenes
+        };
+
         try
         {
-            // 2. Le pasamos el DTO completo a tu servicio ultra seguro
             await _anuncioService.SubirImagenesAsync(dto);
-            
-            return Ok(new { mensaje = "Imágenes subidas y asociadas al anuncio correctamente." });
+            return Ok(new { mensaje = "Imágenes subidas correctamente." });
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
-        catch (InvalidOperationException ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
+        catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); }
+        catch (UnauthorizedAccessException ex) { return StatusCode(403, new { error = ex.Message }); } // 403 Forbidden si no es el dueño
+        catch (Exception ex) { return BadRequest(new { error = ex.Message }); }
+    }
 
+    // ==========================================
+    // MÉTODO AUXILIAR PRIVADO
+    // ==========================================
+    private int ObtenerUsuarioIdDelToken()
+    {
+        var claimId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        
+        if (string.IsNullOrEmpty(claimId) || !int.TryParse(claimId, out int usuarioId))
+        {
+            // Si llega aquí, significa que el token es inválido o no tiene el claim.
+            // Aunque [Authorize] debería detenerlo antes, es una buena práctica de seguridad.
+            throw new UnauthorizedAccessException("Token inválido o usuario no identificado.");
+        }
+        
+        return usuarioId;
     }
 }

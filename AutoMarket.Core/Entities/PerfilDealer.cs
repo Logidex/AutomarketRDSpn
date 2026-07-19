@@ -20,7 +20,7 @@ public class PerfilDealer
     // 2. CONSTRUCTOR DE DOMINIO MODIFICADO
     // ==========================================
     public PerfilDealer(
-    int usuarioId,
+    Usuario usuario,
     string nombreAgencia,
     string agenciaRNC,
     string ubicacion,
@@ -29,8 +29,7 @@ public class PerfilDealer
     string? horarios = null)
     {
 
-        if (usuarioId <= 0)
-            throw new ArgumentException("El UsuarioId debe ser válido.", nameof(usuarioId));
+        Usuario = usuario ?? throw new ArgumentNullException(nameof(usuario));
 
         if (string.IsNullOrWhiteSpace(nombreAgencia))
             throw new ArgumentException("El nombre de la agencia es obligatorio.", nameof(nombreAgencia));
@@ -44,7 +43,6 @@ public class PerfilDealer
         if (string.IsNullOrWhiteSpace(telefonoAgencia))
             throw new ArgumentException("El teléfono es obligatorio.", nameof(telefonoAgencia));
 
-        UsuarioId = usuarioId;
         NombreAgencia = nombreAgencia;
         AgenciaRNC = agenciaRNC;
         Ubicacion = ubicacion;
@@ -52,4 +50,6 @@ public class PerfilDealer
         LogoUrl = logoUrl;
         Horarios = horarios;
     }
+
+    
 }

@@ -22,8 +22,8 @@ public class AnuncioRepository : IAnuncioRepository
     public async Task<Anuncio?> ObtenerPorIdAsync(int Id)
     {
         var vehiculoEncontrado = await _context.Anuncios
-                         .AsNoTracking() 
-                         .FirstOrDefaultAsync(a => a.Id == Id);
+                                               .AsNoTracking() 
+                                               .FirstOrDefaultAsync(a => a.Id == Id);
         return vehiculoEncontrado;
     }
 

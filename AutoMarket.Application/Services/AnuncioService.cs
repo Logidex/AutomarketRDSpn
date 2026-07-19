@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using AutoMarket.Application.DTOs;
 using AutoMarket.Core.Entities;
 using AutoMarket.Core.Interfaces;
@@ -86,11 +84,18 @@ public class AnuncioService
 
     }
 
-    public async Task<AnuncioUpdateDto?> ActualizarAsync(AnuncioUpdateDto updateAnuncio)
+    public async Task<AnuncioUpdateDto?> ActualizarAsync(int id, int usuarioId, AnuncioUpdateDto updateAnuncio)
     {
-        var anuncio = await _repository.ObtenerPorIdAsync(updateAnuncio.Id);
+        // Ojo: es más seguro buscar por el 'id' que viene en la ruta de la URL que por el del DTO
+        var anuncio = await _repository.ObtenerPorIdAsync(id);
 
         if (anuncio == null) return null;
+
+        // 🔒 BARRERA DE SEGURIDAD: ¿El usuario que hace la petición es el verdadero dueño?
+        if (anuncio.UsuarioId != usuarioId)
+        {
+            throw new UnauthorizedAccessException("Acceso denegado: No tienes permiso para modificar un anuncio que no te pertenece.");
+        }
 
         anuncio.ActualizarInfo(
             updateAnuncio.Marca,
@@ -110,15 +115,19 @@ public class AnuncioService
         );
 
         await _repository.ActualizarAsync(anuncio);
-
         return updateAnuncio;
     }
 
-    public async Task<bool> PublicarAnuncioAsync(int id)
+    public async Task<bool> PublicarAnuncioAsync(int id, int usuarioId)
     {
         var anuncio = await _repository.ObtenerPorIdAsync(id);
 
         if (anuncio == null) return false;
+
+        if (anuncio.UsuarioId != usuarioId)
+        {
+            throw new UnauthorizedAccessException("Acceso denegado: No tienes permiso para publicar un anuncio que no te pertenece.");
+        }
 
         anuncio.Publicar();
 
@@ -130,6 +139,11 @@ public class AnuncioService
     {
         var _anuncio = await _repository.ObtenerPorIdAsync(dto.AnuncioId);
         if (_anuncio == null) throw new KeyNotFoundException("El anuncio no existe");
+
+        if (_anuncio.UsuarioId != dto.UsuarioId)
+        {
+            throw new UnauthorizedAccessException("Acceso denegado: No tienes permiso para subir fotos a este anuncio.");
+        }
 
         var rutasGuardadas = new List<string>();
 
@@ -144,11 +158,10 @@ public class AnuncioService
             var extension = Path.GetExtension(imagen.FileName);
             var nombreUnico = $"{Guid.NewGuid()}{extension}";
 
-            // 🚨 LA MAGIA: Abrimos el flujo de bytes del archivo y se lo mandamos a S3
             using (var stream = imagen.OpenReadStream())
             {
                 var urlPublicaAws = await _almacenadorArchivos.GuardarArchivoAsync(stream, nombreUnico, imagen.ContentType);
-                rutasGuardadas.Add(urlPublicaAws); // Guarda la URL completa: https://...
+                rutasGuardadas.Add(urlPublicaAws);
             }
         }
 

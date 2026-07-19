@@ -12,7 +12,7 @@ public class Usuario
     public bool EmailConfirmado { get; private set; }
     public PerfilDealer? PerfilDealer { get; private set; }
     private readonly List<Anuncio> _anuncios = new();
-    public IReadOnlyCollection<Anuncio> Anuncios => _anuncios.AsReadOnly(); 
+    public IReadOnlyCollection<Anuncio> Anuncios => _anuncios.AsReadOnly();
 
     // ==========================================
     // 1. CONSTRUCTOR PARA EF CORE
@@ -24,11 +24,11 @@ public class Usuario
     // ==========================================
 
     public Usuario(
-        string nombre, 
-        string apellido, 
-        string email, 
-        string passwordHash,  
-        string? telefonoPersonal, 
+        string nombre,
+        string apellido,
+        string email,
+        string passwordHash,
+        string? telefonoPersonal,
         string rol,
         bool emailConfirmado = false)
     {
@@ -41,7 +41,7 @@ public class Usuario
 
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("El correo electrónico es obligatorio.", nameof(email));
-            
+
         if (!email.Contains("@")) // Validación básica de estructura de correo
             throw new ArgumentException("El formato del correo electrónico es inválido.", nameof(email));
 
@@ -70,11 +70,34 @@ public class Usuario
     public static Usuario CrearAdministradorInterno(string nombre, string apellido, string email, string passwordHash)
     {
         var nuevoAdmin = new Usuario();
-        
+
         // Asignación directa saltándose las restricciones del flujo público
         nuevoAdmin.Nombre = nombre;
-        nuevoAdmin.Rol = "Admin"; 
-        
+        nuevoAdmin.Rol = "Admin";
+
         return nuevoAdmin;
     }
+
+    public void AsignarPerfilDealer(PerfilDealer perfil)
+    {
+        if (Rol != "Dealer") throw new InvalidOperationException("Solo los dealers pueden tener un perfil comercial.");
+        PerfilDealer = perfil;
+    }
+
+    public void CrearPerfilDealer(string nombreAgencia, string agenciaRNC, string ubicacion, string telefonoAgencia)
+    {
+        if (Rol != "Dealer")
+            throw new InvalidOperationException("Solo los usuarios con rol 'Dealer' pueden tener un perfil comercial.");
+
+        // Instanciamos el perfil pasándole el objeto 'Usuario' completo (this) 
+        // en lugar de un ID numérico que aún no existe
+        PerfilDealer = new PerfilDealer(
+            usuario: this,
+            nombreAgencia: nombreAgencia,
+            agenciaRNC: agenciaRNC,
+            ubicacion: ubicacion,
+            telefonoAgencia: telefonoAgencia
+        );
+    }
+
 }

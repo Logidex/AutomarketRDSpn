@@ -1,0 +1,80 @@
+using AutoMarket.Application.DTOs;
+using AutoMarket.Application.DTOs.Usuario;
+using AutoMarket.Application.Interfaces;
+using AutoMarket.Core.Entities;
+using AutoMarket.Core.Interfaces;
+using BCrypt.Net;
+
+namespace AutoMarket.Application.Services;
+
+public class AuthService : IAuthService
+{
+    private readonly IUsuarioRepository _repository;
+    private readonly ITokenService _tokenService;
+
+    public AuthService(IUsuarioRepository repository, ITokenService tokenService)
+    {
+        _repository = repository;
+        _tokenService = tokenService;
+    }
+
+    public async Task<(bool Exito, string Mensaje)> RegistrarUsuarioAsync(RegistroDto dto)
+    {
+        var existeEmail = await _repository.ExisteEmailAsync(dto.Email);
+
+        if (existeEmail) return (false, "El correo electrónico ya está registrado.");
+
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+        var nuevoUsuario = new Usuario(
+            nombre: dto.Nombre,
+            apellido: dto.Apellido,
+            email: dto.Email.ToLowerInvariant(),
+            passwordHash: passwordHash,
+            rol: dto.Rol,
+            telefonoPersonal: dto.TelefonoPersonal
+        );
+
+        if (nuevoUsuario.Rol == "Dealer")
+        {
+            if (string.IsNullOrWhiteSpace(dto.NombreAgencia) || string.IsNullOrWhiteSpace(dto.AgenciaRNC))
+            {
+                return (false, "Los datos de la agencia y el RNC son obligatorios para cuentas tipo Dealer.");
+            }
+
+            nuevoUsuario.CrearPerfilDealer(
+                nombreAgencia: dto.NombreAgencia,
+                agenciaRNC: dto.AgenciaRNC,
+                ubicacion: dto.UbicacionAgencia,
+                telefonoAgencia: dto.TelefonoAgencia
+            );
+        }
+
+        await _repository.CrearUsuarioAsync(nuevoUsuario);
+        return (true, "Usuario registrado exitosamente");
+
+    }
+
+    public async Task<(bool Exito, string Mensaje, string? Token)> LoginAsync(LoginDto dto)
+    {
+        // 1. Validar si el usuario existe por su email
+        var usuario = await _repository.ObtenerPorEmailAsync(dto.Email);
+        if (usuario == null)
+        {
+            return (false, "Credenciales incorrectas.", null);
+        }
+
+        // 2. Verificar la contraseña con BCrypt
+        bool passwordValido = BCrypt.Net.BCrypt.Verify(dto.Password, usuario.PasswordHash);
+        if (!passwordValido)
+        {
+            return (false, "Credenciales incorrectas.", null);
+        }
+
+        var token = _tokenService.GenerarToken(usuario);
+
+        return (true, "Inicio de sesión exitoso.", token);
+    }
+
+}
+

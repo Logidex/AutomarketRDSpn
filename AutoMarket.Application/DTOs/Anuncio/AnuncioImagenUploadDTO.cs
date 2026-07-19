@@ -7,6 +7,7 @@ public class AnuncioImagenUploadDto
 {   
     [Required(ErrorMessage = "El identificador del anuncio es obligatorio.")]
     public int AnuncioId { get; set; }
+    public int UsuarioId { get; set; }
 
     [Required(ErrorMessage = "Debes seleccionar al menos una imagen.")]
     [MinLength(1, ErrorMessage = "Debes subir al menos 1 imagenes.")]

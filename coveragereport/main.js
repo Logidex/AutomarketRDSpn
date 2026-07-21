@@ -299,16 +299,19 @@ var assemblies = [
       { "name": "AutoMarket.Application.DTOs.PagedResult\u003CT\u003E", "rp": "AutoMarket.Application_PagedResult_1.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.RegistroDto", "rp": "AutoMarket.Application_RegistroDto.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.Usuario.LoginDto", "rp": "AutoMarket.Application_LoginDto.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 8, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.DTOs.Usuario.PerfilDealerPublicoDto", "rp": "AutoMarket.Application_PerfilDealerPublicoDto.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.DTOs.Usuario.PerfilDealerUpdateDto", "rp": "AutoMarket.Application_PerfilDealerUpdateDto.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.Services.AnuncioService", "rp": "AutoMarket.Application_AnuncioService.html", "cl": 177, "ucl": 0, "cal": 177, "tl": 214, "cb": 37, "tb": 40, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.Services.AuthService", "rp": "AutoMarket.Application_AuthService.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 80, "cb": 12, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.Services.PerfilDealerService", "rp": "AutoMarket.Application_PerfilDealerService.html", "cl": 67, "ucl": 7, "cal": 74, "tl": 117, "cb": 15, "tb": 20, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "AutoMarket.Core",
     "classes": [
       { "name": "AutoMarket.Core.Entities.Anuncio", "rp": "AutoMarket.Core_Anuncio.html", "cl": 93, "ucl": 24, "cal": 117, "tl": 173, "cb": 19, "tb": 42, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Core.Entities.AnuncioQueryFilter", "rp": "AutoMarket.Core_AnuncioQueryFilter.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Core.Entities.PerfilDealer", "rp": "AutoMarket.Core_PerfilDealer.html", "cl": 28, "ucl": 6, "cal": 34, "tl": 55, "cb": 5, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Core.Entities.Usuario", "rp": "AutoMarket.Core_Usuario.html", "cl": 44, "ucl": 22, "cal": 66, "tl": 103, "cb": 13, "tb": 24, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.PerfilDealer", "rp": "AutoMarket.Core_PerfilDealer.html", "cl": 57, "ucl": 11, "cal": 68, "tl": 91, "cb": 14, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.Usuario", "rp": "AutoMarket.Core_Usuario.html", "cl": 47, "ucl": 21, "cal": 68, "tl": 105, "cb": 13, "tb": 24, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 

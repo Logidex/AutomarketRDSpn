@@ -1,51 +1,6 @@
 {
   "communities": {
     "0": [
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_down",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_up",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_cs_migrationbuilder",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial_buildtargetmodel",
-      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_cs_modelbuilder",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_down",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_up",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_cs_migrationbuilder",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar_buildtargetmodel",
-      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_cs_modelbuilder",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_down",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_up",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_cs_migrationbuilder",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_automarket_infrastructure_migrations_agregarcolumnafotosanuncio",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_buildtargetmodel",
-      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_cs_modelbuilder",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual_down",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual_up",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_cs_migrationbuilder",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_automarket_infrastructure_migrations_sistemausuariosmanual",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_automarket_infrastructure_migrations_sistemausuariosmanual_buildtargetmodel",
-      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_cs_modelbuilder",
-      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
-      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
-      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_buildmodel",
-      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_cs_modelbuilder",
-      "csharp_namespace:5f76d2503f964bd1",
-      "migration",
-      "modelsnapshot"
-    ],
-    "1": [
       "automarket_application_dtos_anuncio_anunciodto",
       "automarket_application_dtos_anuncio_anunciodto_automarket_application_dtos_anunciodto",
       "automarket_application_dtos_anuncio_anunciodto_cs_list",
@@ -88,39 +43,42 @@
       "automarket_tests_anuncioservicetests_cs_fact",
       "automarket_tests_anuncioservicetests_cs_task"
     ],
-    "2": [
-      "automarket_api_controllers_authcontroller",
-      "automarket_api_program",
-      "automarket_application_interfaces_iauthservice",
-      "automarket_application_interfaces_itokenservice",
-      "automarket_application_interfaces_itokenservice_automarket_application_interfaces_itokenservice",
-      "automarket_application_interfaces_itokenservice_automarket_application_interfaces_itokenservice_generartoken",
-      "automarket_application_services_anuncioservice",
-      "automarket_application_services_authservice",
+    "1": [
       "automarket_core_entities_anuncio",
-      "automarket_core_entities_perfildealer",
-      "automarket_core_entities_usuario",
-      "automarket_core_interfaces_ianunciorepository",
-      "automarket_infrastructure_repositories_anunciorepository",
-      "automarket_infrastructure_repositories_usuariorepository",
-      "automarket_infrastructure_services_almacenadors3",
-      "automarket_infrastructure_services_tokenservice",
-      "automarket_infrastructure_services_tokenservice_tokenservice",
-      "automarket_infrastructure_services_tokenservice_tokenservice_generartoken",
-      "automarket_tests_anuncioservicetests",
-      "automarket_tests_usuarioservicetests",
-      "csharp_namespace:0fa5d946e1593208",
-      "csharp_namespace:12cd6872238ab67d",
-      "csharp_namespace:468d498cf137ea2e",
-      "csharp_namespace:76991e43111dfec7",
-      "csharp_namespace:8c551d0154ad9d72",
-      "csharp_namespace:b65da4f67d97e4b1",
-      "csharp_namespace:c33ffe5bf1e4cbc4",
-      "csharp_namespace:d7f3e5f2274791ac",
-      "csharp_namespace:d93ef138b821c8dc",
-      "iconfiguration"
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_actualizarinfo",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_agregarfotos",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_eliminarfoto",
+      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_publicar",
+      "automarket_core_entities_anuncio_cs_ireadonlycollection",
+      "automarket_core_entities_anuncio_cs_list",
+      "automarket_core_entities_filters_anuncioqueryfilter",
+      "automarket_core_entities_filters_anuncioqueryfilter_automarket_core_entities_anuncioqueryfilter",
+      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_buscarpaginadoasync",
+      "automarket_core_interfaces_ianunciorepository_cs_anuncios",
+      "automarket_core_interfaces_ianunciorepository_cs_ienumerable",
+      "automarket_core_interfaces_ianunciorepository_cs_totalregistros",
+      "automarket_infrastructure_data_applicationdbcontext",
+      "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext",
+      "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext_onmodelcreating",
+      "automarket_infrastructure_data_applicationdbcontext_cs_modelbuilder",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_actualizarasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_agregarasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_buscarpaginadoasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_guardarcambiosasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenerporidasync",
+      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenertodoslosanuncios",
+      "automarket_infrastructure_repositories_anunciorepository_cs_anuncios",
+      "automarket_infrastructure_repositories_anunciorepository_cs_ienumerable",
+      "automarket_infrastructure_repositories_anunciorepository_cs_ireadonlycollection",
+      "automarket_infrastructure_repositories_anunciorepository_cs_task",
+      "automarket_infrastructure_repositories_anunciorepository_cs_totalregistros",
+      "datetime",
+      "dbcontext",
+      "dbset"
     ],
-    "3": [
+    "2": [
       "automarket_api_automarket_api",
       "automarket_api_automarket_api_csproj_framework_net10_0",
       "automarket_api_automarket_api_csproj_nuget_microsoft_entityframeworkcore_design",
@@ -151,37 +109,7 @@
       "nuget_xunit_runner_visualstudio",
       "sdk_microsoft_net_sdk_web"
     ],
-    "4": [
-      "automarket_core_entities_perfildealer_automarket_core_entities_perfildealer",
-      "automarket_core_entities_usuario_automarket_core_entities_usuario",
-      "automarket_core_entities_usuario_automarket_core_entities_usuario_asignarperfildealer",
-      "automarket_core_entities_usuario_automarket_core_entities_usuario_crearadministradorinterno",
-      "automarket_core_entities_usuario_automarket_core_entities_usuario_crearperfildealer",
-      "automarket_core_entities_usuario_cs_ireadonlycollection",
-      "automarket_core_entities_usuario_cs_list",
-      "automarket_core_interfaces_iusuariorepository",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_crearusuarioasync",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_existeemailasync",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerdealerconperfilporidasync",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerporemailasync",
-      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerporidasync",
-      "automarket_core_interfaces_iusuariorepository_cs_task",
-      "automarket_infrastructure_data_applicationdbcontext",
-      "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext",
-      "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext_onmodelcreating",
-      "automarket_infrastructure_data_applicationdbcontext_cs_modelbuilder",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_crearusuarioasync",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_existeemailasync",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerdealerconperfilporidasync",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerporemailasync",
-      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerporidasync",
-      "automarket_infrastructure_repositories_usuariorepository_cs_task",
-      "dbcontext",
-      "dbset"
-    ],
-    "5": [
+    "3": [
       "authorize",
       "automarket_api_controllers_anuncioscontroller",
       "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller",
@@ -210,35 +138,89 @@
       "httppatch",
       "httpput"
     ],
+    "4": [
+      "automarket_api_program",
+      "automarket_application_dtos_dealer_perfildealerpublicodto",
+      "automarket_application_dtos_dealer_perfildealerpublicodto_automarket_application_dtos_usuario_perfildealerpublicodto",
+      "automarket_application_dtos_dealer_perfildealerupdatedtto",
+      "automarket_application_dtos_dealer_perfildealerupdatedtto_automarket_application_dtos_usuario_perfildealerupdatedto",
+      "automarket_application_interfaces_iauthservice",
+      "automarket_application_interfaces_itokenservice",
+      "automarket_application_services_anuncioservice",
+      "automarket_application_services_authservice",
+      "automarket_core_interfaces_ianunciorepository",
+      "automarket_core_interfaces_iusuariorepository",
+      "automarket_infrastructure_repositories_anunciorepository",
+      "automarket_infrastructure_repositories_usuariorepository",
+      "automarket_infrastructure_services_almacenadors3",
+      "automarket_infrastructure_services_tokenservice",
+      "automarket_tests_anuncioservicetests",
+      "automarket_tests_usuarioservicetests",
+      "csharp_namespace:0fa5d946e1593208",
+      "csharp_namespace:12cd6872238ab67d",
+      "csharp_namespace:468d498cf137ea2e",
+      "csharp_namespace:76991e43111dfec7",
+      "csharp_namespace:8c551d0154ad9d72",
+      "csharp_namespace:b65da4f67d97e4b1",
+      "csharp_namespace:c33ffe5bf1e4cbc4",
+      "csharp_namespace:d7f3e5f2274791ac",
+      "csharp_namespace:d93ef138b821c8dc",
+      "iformfile"
+    ],
+    "5": [
+      "anuncio",
+      "automarket_core_entities_perfildealer",
+      "automarket_core_entities_perfildealer_automarket_core_entities_perfildealer",
+      "automarket_core_entities_perfildealer_automarket_core_entities_perfildealer_actualizarlogo",
+      "automarket_core_entities_perfildealer_automarket_core_entities_perfildealer_actualizarperfil",
+      "automarket_core_entities_usuario",
+      "automarket_core_entities_usuario_automarket_core_entities_usuario",
+      "automarket_core_entities_usuario_automarket_core_entities_usuario_asignarperfildealer",
+      "automarket_core_entities_usuario_automarket_core_entities_usuario_crearadministradorinterno",
+      "automarket_core_entities_usuario_automarket_core_entities_usuario_crearperfildealer",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_crearusuarioasync",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_existeemailasync",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerdealerconperfilporidasync",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerporemailasync",
+      "automarket_core_interfaces_iusuariorepository_automarket_core_interfaces_iusuariorepository_obtenerporidasync",
+      "automarket_core_interfaces_iusuariorepository_cs_task",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_crearusuarioasync",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_existeemailasync",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerdealerconperfilporidasync",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerporemailasync",
+      "automarket_infrastructure_repositories_usuariorepository_automarket_infrastructure_repositories_usuariorepository_obtenerporidasync",
+      "automarket_infrastructure_repositories_usuariorepository_cs_task",
+      "ireadonlycollection",
+      "list"
+    ],
     "6": [
-      "automarket_core_entities_anuncio_automarket_core_entities_anuncio",
-      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_actualizarinfo",
-      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_agregarfotos",
-      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_eliminarfoto",
-      "automarket_core_entities_anuncio_automarket_core_entities_anuncio_publicar",
-      "automarket_core_entities_anuncio_cs_ireadonlycollection",
-      "automarket_core_entities_anuncio_cs_list",
-      "automarket_core_entities_filters_anuncioqueryfilter",
-      "automarket_core_entities_filters_anuncioqueryfilter_automarket_core_entities_anuncioqueryfilter",
-      "automarket_core_interfaces_ianunciorepository_automarket_core_interfaces_ianunciorepository_buscarpaginadoasync",
-      "automarket_core_interfaces_ianunciorepository_cs_anuncios",
-      "automarket_core_interfaces_ianunciorepository_cs_ienumerable",
-      "automarket_core_interfaces_ianunciorepository_cs_totalregistros",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_actualizarasync",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_agregarasync",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_buscarpaginadoasync",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_guardarcambiosasync",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenerporidasync",
-      "automarket_infrastructure_repositories_anunciorepository_automarket_infrastructure_repositories_anunciorepository_obtenertodoslosanuncios",
-      "automarket_infrastructure_repositories_anunciorepository_cs_anuncios",
-      "automarket_infrastructure_repositories_anunciorepository_cs_ienumerable",
-      "automarket_infrastructure_repositories_anunciorepository_cs_ireadonlycollection",
-      "automarket_infrastructure_repositories_anunciorepository_cs_task",
-      "automarket_infrastructure_repositories_anunciorepository_cs_totalregistros",
-      "datetime"
+      "automarket_application_interfaces_itokenservice_automarket_application_interfaces_itokenservice",
+      "automarket_application_interfaces_itokenservice_automarket_application_interfaces_itokenservice_generartoken",
+      "automarket_application_services_authservice_automarket_application_services_authservice",
+      "automarket_application_services_authservice_automarket_application_services_authservice_loginasync",
+      "automarket_application_services_authservice_automarket_application_services_authservice_registrarusuarioasync",
+      "automarket_application_services_authservice_cs_exito",
+      "automarket_application_services_authservice_cs_mensaje",
+      "automarket_application_services_authservice_cs_task",
+      "automarket_application_services_authservice_cs_token",
+      "automarket_infrastructure_services_tokenservice_tokenservice",
+      "automarket_infrastructure_services_tokenservice_tokenservice_generartoken",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_credencialescorrectas_deberetornarexitoytoken",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_emailinexistente_deberetornarfalso",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_passwordincorrecto_deberetornarfalso",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_datosvalidoscomprador_deberetornarexito",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_datosvalidosdealer_deberetornarexito",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_dealerfaltandatos_deberetornarfalso",
+      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_siemailyaexiste_deberetornarfalso",
+      "automarket_tests_usuarioservicetests_cs_fact",
+      "automarket_tests_usuarioservicetests_cs_task",
+      "iconfiguration"
     ],
     "7": [
+      "automarket_api_controllers_authcontroller",
       "automarket_api_controllers_authcontroller_authcontroller",
       "automarket_api_controllers_authcontroller_authcontroller_login",
       "automarket_api_controllers_authcontroller_authcontroller_registrar",
@@ -256,7 +238,6 @@
       "automarket_application_interfaces_iauthservice_cs_mensaje",
       "automarket_application_interfaces_iauthservice_cs_task",
       "automarket_application_interfaces_iauthservice_cs_token",
-      "automarket_application_services_authservice_automarket_application_services_authservice",
       "controllerbase"
     ],
     "8": [
@@ -278,24 +259,6 @@
       "automarket_api_properties_launchsettings_schema"
     ],
     "9": [
-      "automarket_application_services_authservice_automarket_application_services_authservice_loginasync",
-      "automarket_application_services_authservice_automarket_application_services_authservice_registrarusuarioasync",
-      "automarket_application_services_authservice_cs_exito",
-      "automarket_application_services_authservice_cs_mensaje",
-      "automarket_application_services_authservice_cs_task",
-      "automarket_application_services_authservice_cs_token",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_credencialescorrectas_deberetornarexitoytoken",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_emailinexistente_deberetornarfalso",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_loginasync_passwordincorrecto_deberetornarfalso",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_datosvalidoscomprador_deberetornarexito",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_datosvalidosdealer_deberetornarexito",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_dealerfaltandatos_deberetornarfalso",
-      "automarket_tests_usuarioservicetests_automarket_tests_services_usuarioservicetests_registrarusuarioasync_siemailyaexiste_deberetornarfalso",
-      "automarket_tests_usuarioservicetests_cs_fact",
-      "automarket_tests_usuarioservicetests_cs_task"
-    ],
-    "10": [
       "automarket_core_interfaces_ialmacenadorarchivos",
       "automarket_core_interfaces_ialmacenadorarchivos_automarket_application_services_ialmacenadorarchivos",
       "automarket_core_interfaces_ialmacenadorarchivos_automarket_application_services_ialmacenadorarchivos_eliminararchivoasync",
@@ -310,7 +273,7 @@
       "iamazons3",
       "string"
     ],
-    "11": [
+    "10": [
       "automarket_application_dtos_anuncio_anunciolistadodto",
       "automarket_application_dtos_anuncio_anunciolistadodto_automarket_application_dtos_anunciolistadodto",
       "automarket_application_dtos_anuncio_anunciolistadodto_cs_list",
@@ -324,7 +287,7 @@
       "automarket_application_interfaces_ianuncioservice_automarket_application_interfaces_ianuncioservice_buscaranunciosasync",
       "automarket_application_interfaces_ianuncioservice_cs_task"
     ],
-    "12": [
+    "11": [
       "automarket_tests_coveragereport_main",
       "automarket_tests_coveragereport_main_241",
       "automarket_tests_coveragereport_main_50",
@@ -337,7 +300,7 @@
       "automarket_tests_coveragereport_main_s",
       "automarket_tests_coveragereport_main_t"
     ],
-    "13": [
+    "12": [
       "coveragereport_main",
       "coveragereport_main_241",
       "coveragereport_main_50",
@@ -350,7 +313,7 @@
       "coveragereport_main_s",
       "coveragereport_main_t"
     ],
-    "14": [
+    "13": [
       "automarket_tests_coveragereport_class",
       "automarket_tests_coveragereport_class_h",
       "automarket_tests_coveragereport_class_i",
@@ -360,7 +323,7 @@
       "automarket_tests_coveragereport_class_s",
       "automarket_tests_coveragereport_class_t"
     ],
-    "15": [
+    "14": [
       "coveragereport_class",
       "coveragereport_class_h",
       "coveragereport_class_i",
@@ -370,55 +333,147 @@
       "coveragereport_class_s",
       "coveragereport_class_t"
     ],
+    "15": [
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_automarket_infrastructure_migrations_agregarpublicaralguardar_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_designer_cs_modelbuilder",
+      "csharp_namespace:5f76d2503f964bd1"
+    ],
     "16": [
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_down",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_automarket_infrastructure_migrations_migracioninicial_up",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_cs_migrationbuilder",
+      "migration"
+    ],
+    "17": [
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_down",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_automarket_infrastructure_migrations_agregarpublicaralguardar_up",
+      "automarket_infrastructure_migrations_20260714223637_agregarpublicaralguardar_cs_migrationbuilder"
+    ],
+    "18": [
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_down",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_up",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_cs_migrationbuilder"
+    ],
+    "19": [
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual_down",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_automarket_infrastructure_migrations_sistemausuariosmanual_up",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_cs_migrationbuilder"
+    ],
+    "20": [
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_automarket_infrastructure_migrations_agregarcamposperfildealer",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_automarket_infrastructure_migrations_agregarcamposperfildealer_down",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_automarket_infrastructure_migrations_agregarcamposperfildealer_up",
+      "migrationbuilder"
+    ],
+    "21": [
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_buildmodel",
+      "automarket_infrastructure_migrations_applicationdbcontextmodelsnapshot_cs_modelbuilder",
+      "modelsnapshot"
+    ],
+    "22": [
       "automarket_application_dtos_anuncio_anuncioimagenuploaddto",
       "automarket_application_dtos_anuncio_anuncioimagenuploaddto_automarket_application_dtos_anuncioimagenuploaddto",
       "automarket_application_dtos_anuncio_anuncioimagenuploaddto_cs_iformfile",
       "automarket_application_dtos_anuncio_anuncioimagenuploaddto_cs_list"
     ],
-    "17": [
+    "23": [
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_automarket_infrastructure_migrations_migracioninicial_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260714025801_migracioninicial_designer_cs_modelbuilder"
+    ],
+    "24": [
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_automarket_infrastructure_migrations_agregarcolumnafotosanuncio",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_automarket_infrastructure_migrations_agregarcolumnafotosanuncio_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260716205353_agregarcolumnafotosanuncio_designer_cs_modelbuilder"
+    ],
+    "25": [
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_automarket_infrastructure_migrations_sistemausuariosmanual",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_automarket_infrastructure_migrations_sistemausuariosmanual_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260719062154_sistemausuariosmanual_designer_cs_modelbuilder"
+    ],
+    "26": [
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_designer",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_designer_automarket_infrastructure_migrations_agregarcamposperfildealer",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_designer_automarket_infrastructure_migrations_agregarcamposperfildealer_buildtargetmodel",
+      "automarket_infrastructure_migrations_20260721031511_agregarcamposperfildealer_designer_cs_modelbuilder"
+    ],
+    "27": [
       "automarket_application_dtos_anunciocreatedto_cs_list"
     ],
-    "18": [
+    "28": [
       "automarket_application_dtos_anunciodto_cs_list"
     ],
-    "19": [
+    "29": [
       "automarket_application_dtos_anunciolistadodto_cs_list"
     ],
-    "20": [
+    "30": [
       "automarket_application_dtos_anuncioupdatedto_cs_list"
     ],
-    "21": [
+    "31": [
+      "automarket_core_entities_usuario_cs_ireadonlycollection"
+    ],
+    "32": [
+      "automarket_core_entities_usuario_cs_list"
+    ],
+    "33": [
       "httppost"
     ],
-    "22": [
+    "34": [
       "iactionresult"
     ]
   },
   "cohesion": {
-    "0": 0.05426356589147287,
-    "1": 0.13170731707317074,
-    "2": 0.12183908045977011,
-    "3": 0.08620689655172414,
-    "4": 0.11904761904761904,
-    "5": 0.13675213675213677,
-    "6": 0.11692307692307692,
+    "0": 0.13170731707317074,
+    "1": 0.08712121212121213,
+    "2": 0.08620689655172414,
+    "3": 0.13675213675213677,
+    "4": 0.1396011396011396,
+    "5": 0.12615384615384614,
+    "6": 0.18614718614718614,
     "7": 0.16374269005847952,
     "8": 0.13333333333333333,
-    "9": 0.2916666666666667,
-    "10": 0.1794871794871795,
-    "11": 0.16666666666666666,
+    "9": 0.1794871794871795,
+    "10": 0.16666666666666666,
+    "11": 0.4727272727272727,
     "12": 0.4727272727272727,
-    "13": 0.4727272727272727,
+    "13": 0.42857142857142855,
     "14": 0.42857142857142855,
-    "15": 0.42857142857142855,
+    "15": 0.3333333333333333,
     "16": 0.5,
-    "17": 1.0,
-    "18": 1.0,
-    "19": 1.0,
-    "20": 1.0,
-    "21": 1.0,
-    "22": 1.0
+    "17": 0.5,
+    "18": 0.5,
+    "19": 0.5,
+    "20": 0.5,
+    "21": 0.4,
+    "22": 0.5,
+    "23": 0.5,
+    "24": 0.5,
+    "25": 0.5,
+    "26": 0.5,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0
   },
   "gods": [
     {
@@ -429,7 +484,7 @@
     {
       "id": "automarket_core_entities_usuario_automarket_core_entities_usuario",
       "label": "Usuario",
-      "degree": 19
+      "degree": 20
     },
     {
       "id": "automarket_tests_anuncioservicetests_automarket_tests_services_anuncioservicetests",
@@ -442,6 +497,11 @@
       "degree": 15
     },
     {
+      "id": "csharp_namespace:5f76d2503f964bd1",
+      "label": "AutoMarket.Infrastructure.Migrations",
+      "degree": 11
+    },
+    {
       "id": "automarket_api_controllers_anuncioscontroller_automarket_api_controllers_anuncioscontroller",
       "label": "AnunciosController",
       "degree": 11
@@ -450,11 +510,6 @@
       "id": "automarket_application_services_anuncioservice_automarket_application_services_anuncioservice",
       "label": "AnuncioService",
       "degree": 11
-    },
-    {
-      "id": "csharp_namespace:5f76d2503f964bd1",
-      "label": "AutoMarket.Infrastructure.Migrations",
-      "degree": 9
     },
     {
       "id": "csharp_namespace:d93ef138b821c8dc",
@@ -467,8 +522,8 @@
       "degree": 9
     },
     {
-      "id": "csharp_namespace:b65da4f67d97e4b1",
-      "label": "AutoMarket.Infrastructure.Data",
+      "id": "automarket_infrastructure_data_applicationdbcontext_automarket_infrastructure_data_applicationdbcontext",
+      "label": "ApplicationDbContext",
       "degree": 9
     }
   ],
@@ -507,17 +562,6 @@
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "ApplicationDbContext",
-      "target": "Anuncio",
-      "source_files": [
-        "AutoMarket.Infrastructure/Data/ApplicationDbContext.cs",
-        "AutoMarket.Core/Entities/Anuncio.cs"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
       "source": "AnuncioRepository",
       "target": "IAnuncioRepository",
       "source_files": [
@@ -526,6 +570,17 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "implements",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "ApplicationDbContext",
+      "target": "PerfilDealer",
+      "source_files": [
+        "AutoMarket.Infrastructure/Data/ApplicationDbContext.cs",
+        "AutoMarket.Core/Entities/PerfilDealer.cs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
       "why": "connects across different repos/directories; bridges separate communities"
     }
   ],

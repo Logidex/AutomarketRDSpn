@@ -23,9 +23,9 @@ public class UsuarioRepository : IUsuarioRepository
     public async Task<Usuario> CrearUsuarioAsync(Usuario usuario)
     {
         _context.Usuarios.Add(usuario);
-    
+
         await _context.SaveChangesAsync();
-    
+
         return usuario;
     }
 
@@ -51,5 +51,10 @@ public class UsuarioRepository : IUsuarioRepository
             .AsNoTracking()
             .Include(u => u.PerfilDealer)
             .FirstOrDefaultAsync(u => u.UsuarioId == usuarioId);
+    }
+
+    public async Task GuardarCambiosAsync()
+    {
+        await _context.SaveChangesAsync();
     }
 }

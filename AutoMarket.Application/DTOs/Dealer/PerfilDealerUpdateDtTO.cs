@@ -9,7 +9,7 @@ namespace AutoMarket.Application.DTOs.Usuario
         public string Ubicacion { get; set; } = null!;
         public string TelefonoAgencia { get; set; } = null!;
         public string? Horarios { get; set; }
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; } = null!;
         public string? WhatsApp { get; set; }
 
         public IFormFile? Logo { get; set; } 

@@ -235,9 +235,9 @@
     "semantic_hash": "848feafe9860472f4804be2a6e40afcc"
   },
   "AutoMarket.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs": {
-    "mtime": 1784442114.568122,
-    "ast_hash": "6c2fb9c1590cb2d82e71ab87a068a76e",
-    "semantic_hash": "6c2fb9c1590cb2d82e71ab87a068a76e"
+    "mtime": 1784603712.017401,
+    "ast_hash": "5b5c749640b21c1ce75b4873a7ce401d",
+    "semantic_hash": "5b5c749640b21c1ce75b4873a7ce401d"
   },
   "AutoMarket.Infrastructure/Repositories/AnuncioRepository.cs": {
     "mtime": 1784601633.5874758,
@@ -370,14 +370,14 @@
     "semantic_hash": "5a38d6a0c1d37edddc4980a7d87d4047"
   },
   "AutoMarket.Core/Entities/PerfilDealer.cs": {
-    "mtime": 1784495046.6862953,
-    "ast_hash": "df47db3ddd013fce163675629875f3a3",
-    "semantic_hash": "df47db3ddd013fce163675629875f3a3"
+    "mtime": 1784603554.7211728,
+    "ast_hash": "f0c6db7145e094f6dd24d81dfe12a7c1",
+    "semantic_hash": "f0c6db7145e094f6dd24d81dfe12a7c1"
   },
   "AutoMarket.Core/Entities/Usuario.cs": {
-    "mtime": 1784494915.6794288,
-    "ast_hash": "6656b4fa9340368753f008be211400df",
-    "semantic_hash": "6656b4fa9340368753f008be211400df"
+    "mtime": 1784603627.4613912,
+    "ast_hash": "e2db463350ef9e71b1ed648abf268c32",
+    "semantic_hash": "e2db463350ef9e71b1ed648abf268c32"
   },
   "AutoMarket.Core/Interfaces/IAlmacenadorArchivos.cs": {
     "mtime": 1784238651.793828,
@@ -458,5 +458,25 @@
     "mtime": 1784602224.9016328,
     "ast_hash": "739c2f57cc2a5942b338d7fddf2764d5",
     "semantic_hash": "739c2f57cc2a5942b338d7fddf2764d5"
+  },
+  "AutoMarket.Application/DTOs/Dealer/PerfilDealerPublicoDTO.cs": {
+    "mtime": 1784603405.4883864,
+    "ast_hash": "3a510a89e17face8171c445894eff968",
+    "semantic_hash": "3a510a89e17face8171c445894eff968"
+  },
+  "AutoMarket.Application/DTOs/Dealer/PerfilDealerUpdateDtTO.cs": {
+    "mtime": 1784603388.8165522,
+    "ast_hash": "b863455779bfd90b5760f09a8c33fe46",
+    "semantic_hash": "b863455779bfd90b5760f09a8c33fe46"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260721031511_AgregarCamposPerfilDealer.Designer.cs": {
+    "mtime": 1784603712.017401,
+    "ast_hash": "80545c5f99b95d2dae0032d8d04fe6ee",
+    "semantic_hash": "80545c5f99b95d2dae0032d8d04fe6ee"
+  },
+  "AutoMarket.Infrastructure/Migrations/20260721031511_AgregarCamposPerfilDealer.cs": {
+    "mtime": 1784603712.0164015,
+    "ast_hash": "d970c982f529b03024d49c6958631344",
+    "semantic_hash": "d970c982f529b03024d49c6958631344"
   }
 }

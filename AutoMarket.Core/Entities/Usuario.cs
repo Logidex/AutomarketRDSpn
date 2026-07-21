@@ -84,7 +84,7 @@ public class Usuario
         PerfilDealer = perfil;
     }
 
-    public void CrearPerfilDealer(string nombreAgencia, string agenciaRNC, string ubicacion, string telefonoAgencia)
+    public void CrearPerfilDealer(string nombreAgencia, string agenciaRNC, string ubicacion, string telefonoAgencia, string? descripcion = null, string? whatsApp = null)
     {
         if (Rol != "Dealer")
             throw new InvalidOperationException("Solo los usuarios con rol 'Dealer' pueden tener un perfil comercial.");
@@ -96,7 +96,9 @@ public class Usuario
             nombreAgencia: nombreAgencia,
             agenciaRNC: agenciaRNC,
             ubicacion: ubicacion,
-            telefonoAgencia: telefonoAgencia
+            telefonoAgencia: telefonoAgencia,
+            descripcion: descripcion,
+            whatsApp: whatsApp
         );
     }
 

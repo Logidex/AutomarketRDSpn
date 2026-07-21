@@ -25,10 +25,10 @@ public class AnunciosController : ControllerBase
     public async Task<IActionResult> CrearAnuncio([FromBody] AnuncioCreateDto dto)
     {
         int usuarioId = ObtenerUsuarioIdDelToken();
-        
+
         // Asignamos el ID del creador al DTO antes de enviarlo al servicio
-        dto.UsuarioId = usuarioId; 
-        
+        dto.UsuarioId = usuarioId;
+
         await _anuncioService.CrearAnuncioAsync(dto);
         return Ok(new { mensaje = "Anuncio creado correctamente." });
     }
@@ -77,16 +77,16 @@ public class AnunciosController : ControllerBase
     // 4. PUBLICAR: Añadimos Authorize
     // ==========================================
     [HttpPatch("{id}/publicar")]
-    [Authorize] 
+    [Authorize]
     public async Task<IActionResult> Publicar(int id)
     {
         int usuarioId = ObtenerUsuarioIdDelToken();
-        
+
         // El servicio debe verificar que este usuarioId es el dueño del anuncio 'id'
         var publicado = await _anuncioService.PublicarAnuncioAsync(id, usuarioId);
-        
+
         if (!publicado) return NotFound(new { mensaje = "No se encontró el anuncio o no tienes permisos." });
-        
+
         return Ok(new { mensaje = "Anuncio publicado con éxito." });
     }
 
@@ -129,14 +129,27 @@ public class AnunciosController : ControllerBase
     private int ObtenerUsuarioIdDelToken()
     {
         var claimId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        
+
         if (string.IsNullOrEmpty(claimId) || !int.TryParse(claimId, out int usuarioId))
         {
             // Si llega aquí, significa que el token es inválido o no tiene el claim.
             // Aunque [Authorize] debería detenerlo antes, es una buena práctica de seguridad.
             throw new UnauthorizedAccessException("Token inválido o usuario no identificado.");
         }
-        
+
         return usuarioId;
+    }
+
+    // =========================================================================
+    // GET: api/anuncios/buscar
+    // =========================================================================
+    [HttpGet("buscar")]
+    public async Task<IActionResult> BuscarAnuncios([FromQuery] AnuncioSearchDto dto)
+    {
+        // El servicio procesa los filtros y nos devuelve el resultado paginado
+        var resultado = await _anuncioService.BuscarAnunciosAsync(dto);
+
+        // Devolvemos el HTTP 200 OK junto con el JSON estructurado
+        return Ok(resultado);
     }
 }

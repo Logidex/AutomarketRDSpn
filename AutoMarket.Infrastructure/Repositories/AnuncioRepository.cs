@@ -22,7 +22,7 @@ public class AnuncioRepository : IAnuncioRepository
     public async Task<Anuncio?> ObtenerPorIdAsync(int Id)
     {
         var vehiculoEncontrado = await _context.Anuncios
-                                               .AsNoTracking() 
+                                               .AsNoTracking()
                                                .FirstOrDefaultAsync(a => a.Id == Id);
         return vehiculoEncontrado;
     }
@@ -34,9 +34,9 @@ public class AnuncioRepository : IAnuncioRepository
 
     public async Task<IReadOnlyCollection<Anuncio>> ObtenerTodosLosAnuncios()
     {
-      return await _context.Anuncios
-            .Where(a => a.Estado == "Publicado")
-            .ToListAsync();
+        return await _context.Anuncios
+              .Where(a => a.Estado == "Publicado")
+              .ToListAsync();
     }
 
     public async Task ActualizarAsync(Anuncio anuncio)
@@ -45,8 +45,74 @@ public class AnuncioRepository : IAnuncioRepository
 
         entry.Property("_fotos").IsModified = true;
 
-         _context.Anuncios.Update(anuncio);
+        _context.Anuncios.Update(anuncio);
         await _context.SaveChangesAsync();
 
+    }
+
+    public async Task<(IEnumerable<Anuncio> Anuncios, int TotalRegistros)> BuscarPaginadoAsync(AnuncioQueryFilter filtro)
+    {
+        IQueryable<Anuncio> query = _context.Anuncios.AsNoTracking();
+
+        if (!string.IsNullOrWhiteSpace(filtro.Marca))
+        {
+            query = query.Where(a => a.Marca.ToLower().Contains(filtro.Marca.ToLower()));
+        }
+
+        if (!string.IsNullOrWhiteSpace(filtro.Modelo))
+        {
+            query = query.Where(a => a.Modelo.ToLower().Contains(filtro.Modelo.ToLower()));
+        }
+
+        if (!string.IsNullOrWhiteSpace(filtro.Transmision))
+        {
+            query = query.Where(a => a.Transmision.ToLower().Contains(filtro.Transmision.ToLower()));
+        }
+
+        if (!string.IsNullOrWhiteSpace(filtro.Combustible))
+        {
+            query = query.Where(a => a.Combustible.ToLower().Contains(filtro.Combustible.ToLower()));
+        }
+
+        if (!string.IsNullOrWhiteSpace(filtro.Ubicacion))
+        {
+            query = query.Where(a => a.Ubicacion.ToLower().Contains(filtro.Ubicacion.ToLower()));
+        }
+
+        // Para los rangos numéricos evaluamos si tienen valor (.HasValue)
+        if (filtro.PrecioMinimo.HasValue)
+        {
+            query = query.Where(a => a.Precio >= filtro.PrecioMinimo.Value);
+        }
+
+        if (filtro.PrecioMaximo.HasValue)
+        {
+            query = query.Where(a => a.Precio <= filtro.PrecioMaximo.Value);
+        }
+
+        if (filtro.AnioDesde.HasValue)
+        {
+            query = query.Where(a => a.Anio >= filtro.AnioDesde.Value);
+        }
+
+        if (filtro.AnioHasta.HasValue)
+        {
+            query = query.Where(a => a.Anio <= filtro.AnioHasta.Value);
+        }
+
+        if (filtro.KilometrajeMaximo.HasValue)
+        {
+            query = query.Where(a => a.Kilometraje <= filtro.KilometrajeMaximo.Value);
+        }
+
+        int totalRegistros = await query.CountAsync();
+
+        var anuncios = await query
+            .OrderByDescending(a => a.Id)
+            .Skip((filtro.PaginaActual - 1) * filtro.CantidadPorPagina)
+            .Take(filtro.CantidadPorPagina)
+            .ToListAsync();
+
+        return (anuncios, totalRegistros);
     }
 }

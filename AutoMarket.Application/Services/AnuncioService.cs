@@ -86,12 +86,10 @@ public class AnuncioService
 
     public async Task<AnuncioUpdateDto?> ActualizarAsync(int id, int usuarioId, AnuncioUpdateDto updateAnuncio)
     {
-        // Ojo: es más seguro buscar por el 'id' que viene en la ruta de la URL que por el del DTO
         var anuncio = await _repository.ObtenerPorIdAsync(id);
 
         if (anuncio == null) return null;
 
-        // 🔒 BARRERA DE SEGURIDAD: ¿El usuario que hace la petición es el verdadero dueño?
         if (anuncio.UsuarioId != usuarioId)
         {
             throw new UnauthorizedAccessException("Acceso denegado: No tienes permiso para modificar un anuncio que no te pertenece.");
@@ -168,5 +166,49 @@ public class AnuncioService
         _anuncio.AgregarFotos(rutasGuardadas);
 
         await _repository.ActualizarAsync(_anuncio);
+    }
+
+    public async Task<PagedResult<AnuncioListadoDto>> BuscarAnunciosAsync(AnuncioSearchDto dto)
+    {
+        // ====================================================================
+        // FASE 1: TRADUCCIÓN (De Web a Dominio)
+        // Convertimos el DTO que viene del Frontend al Filtro que entiende el Core
+        // ====================================================================
+        var filtro = new AnuncioQueryFilter
+        {
+            Marca = dto.Marca,
+            Modelo = dto.Modelo,
+            TipoVehiculo = dto.TipoVehiculo,
+            ColorExterior = dto.ColorExterior,
+            ColorInterior = dto.ColorInterior,
+            Transmision = dto.Transmision,
+            Combustible = dto.Combustible,
+            Ubicacion = dto.Ubicacion,
+            AnioDesde = dto.AnioDesde,
+            AnioHasta = dto.AnioHasta,
+            PrecioMinimo = dto.PrecioMinimo,
+            PrecioMaximo = dto.PrecioMaximo,
+            KilometrajeMaximo = dto.KilometrajeMaximo,
+            PaginaActual = dto.PaginaActual,
+            CantidadPorPagina = dto.CantidadAnuncios
+        };
+
+        var (anuncios, totalRegistros) = await _repository.BuscarPaginadoAsync(filtro);
+
+        var anunciosDto = anuncios.Select(a => new AnuncioListadoDto
+        {
+            Id = a.Id,
+            Precio = a.Precio,
+            Ubicacion = a.Ubicacion,
+            // Tomamos solo la primera foto para la miniatura de la tarjeta, si hay alguna
+            Fotos = a.Fotos != null && a.Fotos.Any() ? a.Fotos.ToList() : new List<string> { "url_imagen_por_defecto.jpg" }
+        }).ToList();
+
+        return new PagedResult<AnuncioListadoDto>(
+            items: anunciosDto,
+            totalRegistros: totalRegistros,
+            paginaActual: dto.PaginaActual,
+            cantidadPorPagina: dto.CantidadAnuncios
+        );
     }
 }

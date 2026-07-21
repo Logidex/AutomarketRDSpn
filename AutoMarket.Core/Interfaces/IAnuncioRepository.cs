@@ -8,4 +8,5 @@ public interface IAnuncioRepository
     Task GuardarCambiosAsync();
     Task ActualizarAsync(Anuncio anuncio);
     Task<IReadOnlyCollection<Anuncio>> ObtenerTodosLosAnuncios();
+    Task<(IEnumerable<Anuncio> Anuncios, int TotalRegistros)> BuscarPaginadoAsync(AnuncioQueryFilter filtro);
 }

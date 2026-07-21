@@ -417,4 +417,83 @@ public class AnuncioServiceTests
         // ¡Y que la entidad ahora tiene la URL de Amazon S3 en su lista de fotos!
         mockRepo.Verify(r => r.ActualizarAsync(It.Is<Anuncio>(a => a.Fotos.Contains(urlS3Simulada))), Times.Once);
     }
+
+    // =========================================================================
+    // PRUEBA 23: Búsqueda sin filtros (Paginación por defecto)
+    // =========================================================================
+    [Fact]
+    public async Task BuscarAnunciosAsync_SinFiltros_DebeRetornarPaginaCorrecta()
+    {
+        // 1. ARRANGE
+        var mockRepo = new Mock<IAnuncioRepository>();
+        var mockArchivos = new Mock<IAlmacenadorArchivos>();
+
+        // Un DTO vacío asume los valores por defecto: Página 1, 20 Anuncios
+        var dtoBusqueda = new AnuncioSearchDto(); 
+
+        var listaSimulada = new List<Anuncio>
+        {
+            new Anuncio(1, "Toyota", "Corolla", "Sedan", "Blanco", "Negro", 2015, 600000, 80000, "Automática", "Gasolina", new List<string>(), "Santo Domingo", "Nítido"),
+            new Anuncio(2, "Honda", "Civic", "Sedan", "Rojo", "Gris", 2018, 850000, 60000, "Automática", "Gasolina", new List<string>(), "Santiago", "Casi nuevo")
+        };
+        var totalRegistrosEnBD = 50; // Simulamos que hay 50 carros en total en la base de datos
+
+        // 🚨 EL TRUCO DE LA TUPLA: Retornamos la lista y el total entre paréntesis
+        mockRepo.Setup(r => r.BuscarPaginadoAsync(It.IsAny<AnuncioQueryFilter>()))
+                .ReturnsAsync((listaSimulada, totalRegistrosEnBD));
+
+        var servicio = new AnuncioService(mockRepo.Object, mockArchivos.Object);
+
+        // 2. ACT
+        var resultado = await servicio.BuscarAnunciosAsync(dtoBusqueda);
+
+        // 3. ASSERT
+        Assert.NotNull(resultado);
+        Assert.Equal(2, resultado.Items.Count); // Devolvió los 2 carros simulados
+        Assert.Equal(50, resultado.TotalRegistros); // Mantuvo el total general
+        Assert.Equal(1, resultado.PaginaActual);
+        Assert.Equal(20, resultado.CantidadPorPagina);
+        
+        // Verifica que calculó matemáticamente las páginas (50 / 20 = 2.5 -> Techo de 3)
+        Assert.Equal(3, resultado.TotalPaginas); 
+    }
+
+    // =========================================================================
+    // PRUEBA 24: Búsqueda con filtros (Traducción exacta al Core)
+    // =========================================================================
+    [Fact]
+    public async Task BuscarAnunciosAsync_ConFiltros_DebeMapearFiltrosAlRepositorio()
+    {
+        // 1. ARRANGE
+        var mockRepo = new Mock<IAnuncioRepository>();
+        var mockArchivos = new Mock<IAlmacenadorArchivos>();
+
+        // El usuario busca un Toyota de máximo 700,000 pesos en la página 2
+        var dtoBusqueda = new AnuncioSearchDto
+        {
+            Marca = "Toyota",
+            PrecioMaximo = 700000,
+            PaginaActual = 2,
+            CantidadAnuncios = 15
+        };
+
+        // Devolvemos una tupla vacía, porque aquí no nos importan los resultados, 
+        // nos importa verificar que el FILTRO llegó correctamente al repositorio.
+        mockRepo.Setup(r => r.BuscarPaginadoAsync(It.IsAny<AnuncioQueryFilter>()))
+                .ReturnsAsync((new List<Anuncio>(), 0));
+
+        var servicio = new AnuncioService(mockRepo.Object, mockArchivos.Object);
+
+        // 2. ACT
+        await servicio.BuscarAnunciosAsync(dtoBusqueda);
+
+        // 3. ASSERT
+        // Usamos It.Is<AnuncioQueryFilter> para inspeccionar si el traductor hizo su trabajo
+        mockRepo.Verify(r => r.BuscarPaginadoAsync(It.Is<AnuncioQueryFilter>(f => 
+            f.Marca == "Toyota" &&
+            f.PrecioMaximo == 700000 &&
+            f.PaginaActual == 2 &&
+            f.CantidadPorPagina == 15
+        )), Times.Once);
+    }
 }

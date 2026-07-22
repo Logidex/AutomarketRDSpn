@@ -105,6 +105,11 @@ public class AnuncioRepository : IAnuncioRepository
             query = query.Where(a => a.Kilometraje <= filtro.KilometrajeMaximo.Value);
         }
 
+        if (filtro.UsuarioId.HasValue)
+        {
+            query = query.Where(a => a.UsuarioId == filtro.UsuarioId.Value);
+        }
+
         int totalRegistros = await query.CountAsync();
 
         var anuncios = await query

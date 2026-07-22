@@ -2,6 +2,7 @@ namespace AutoMarket.Core.Entities
 {
     public class AnuncioQueryFilter
     {
+        public int? UsuarioId { get; set; }
         public string? Marca { get; set; }
         public string? Modelo { get; set; }
         public string? TipoVehiculo { get; set; }

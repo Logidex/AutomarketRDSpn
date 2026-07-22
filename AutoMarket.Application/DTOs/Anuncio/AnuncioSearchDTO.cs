@@ -2,6 +2,7 @@ namespace AutoMarket.Application.DTOs
 {
     public class AnuncioSearchDto
     {
+        public int? UsuarioId { get; set; }
         // 1. Textos y categorías opcionales
         public string? Marca { get; set; }
         public string? Modelo { get; set; }

@@ -48,6 +48,7 @@ public class AnuncioService
         return new AnuncioDto
         {
             Id = anuncio.Id,
+            UsuarioId = anuncio.UsuarioId,
             NombreAnuncio = anuncio.NombreAnuncio,
             Marca = anuncio.Marca,
             Modelo = anuncio.Modelo,
@@ -170,12 +171,10 @@ public class AnuncioService
 
     public async Task<PagedResult<AnuncioListadoDto>> BuscarAnunciosAsync(AnuncioSearchDto dto)
     {
-        // ====================================================================
-        // FASE 1: TRADUCCIÓN (De Web a Dominio)
-        // Convertimos el DTO que viene del Frontend al Filtro que entiende el Core
-        // ====================================================================
+
         var filtro = new AnuncioQueryFilter
         {
+            UsuarioId = dto.UsuarioId,
             Marca = dto.Marca,
             Modelo = dto.Modelo,
             TipoVehiculo = dto.TipoVehiculo,

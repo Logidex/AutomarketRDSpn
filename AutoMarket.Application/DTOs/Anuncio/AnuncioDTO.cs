@@ -3,6 +3,7 @@ namespace AutoMarket.Application.DTOs
     public class AnuncioDto
     {
         public int Id { get; set; }
+        public int UsuarioId { get; set; }
         public string NombreAnuncio { get; set; } = null!;
         public string Marca { get; set; } = null!;
         public string Modelo { get; set; } = null!;

@@ -12,6 +12,7 @@ public class PerfilDealer
     public string TelefonoAgencia { get; private set; } = null!;
     public string? Descripcion { get; private set; }
     public string? WhatsApp { get; private set; }
+    public virtual SuscripcionDealer? Suscripcion { get; private set; }
 
     // ==========================================
     // 1. CONSTRUCTOR PARA EF CORE

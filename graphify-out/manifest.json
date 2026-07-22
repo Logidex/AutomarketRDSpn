@@ -10,9 +10,9 @@
     "semantic_hash": "913dbac9a53380abf7f1b1db2f0147a6"
   },
   "AutoMarket.API/Program.cs": {
-    "mtime": 1784498405.5006802,
-    "ast_hash": "64519fc2ead6add327789573673c41a6",
-    "semantic_hash": "64519fc2ead6add327789573673c41a6"
+    "mtime": 1784665162.4179115,
+    "ast_hash": "58873571ad1ba7b97d53e8ca2d93fcaa",
+    "semantic_hash": "58873571ad1ba7b97d53e8ca2d93fcaa"
   },
   "AutoMarket.API/Properties/launchSettings.json": {
     "mtime": 1783989754.5274684,
@@ -125,9 +125,9 @@
     "semantic_hash": "1830da6b4f7ad1f3c8b34c66ee97341c"
   },
   "AutoMarket.Application/Services/AnuncioService.cs": {
-    "mtime": 1784601986.0917537,
-    "ast_hash": "00c7c7f2f957c6d0f5a774c3415d7ef8",
-    "semantic_hash": "00c7c7f2f957c6d0f5a774c3415d7ef8"
+    "mtime": 1784679104.4550884,
+    "ast_hash": "2f4f4b9a81e130f0a0b289d71bd05f1b",
+    "semantic_hash": "2f4f4b9a81e130f0a0b289d71bd05f1b"
   },
   "AutoMarket.Application/bin/Debug/net10.0/AutoMarket.Application.deps.json": {
     "mtime": 1784041287.8823233,
@@ -240,9 +240,9 @@
     "semantic_hash": "5b5c749640b21c1ce75b4873a7ce401d"
   },
   "AutoMarket.Infrastructure/Repositories/AnuncioRepository.cs": {
-    "mtime": 1784601633.5874758,
-    "ast_hash": "c403048ef9bc18a38dcf8a4f7bb3acc7",
-    "semantic_hash": "c403048ef9bc18a38dcf8a4f7bb3acc7"
+    "mtime": 1784677922.9678757,
+    "ast_hash": "55ab764ec9f5fb18ac1a8dab9493abae",
+    "semantic_hash": "55ab764ec9f5fb18ac1a8dab9493abae"
   },
   "AutoMarket.Infrastructure/bin/Debug/net10.0/AutoMarket.Infrastructure.deps.json": {
     "mtime": 1784041288.2116303,
@@ -305,9 +305,9 @@
     "semantic_hash": "434efb6d4a363f6214ff76eb34db9dba"
   },
   "AutoMarket.Application/DTOs/Anuncio/AnuncioDTO.cs": {
-    "mtime": 1784326014.6814027,
-    "ast_hash": "fc33f1dea2991b64014700944758da56",
-    "semantic_hash": "fc33f1dea2991b64014700944758da56"
+    "mtime": 1784679078.203066,
+    "ast_hash": "a34eeb71a1e57f74806990ebeb4e0aa6",
+    "semantic_hash": "a34eeb71a1e57f74806990ebeb4e0aa6"
   },
   "AutoMarket.Application/DTOs/Anuncio/AnuncioImagenUploadDTO.cs": {
     "mtime": 1784499057.8437545,
@@ -320,9 +320,9 @@
     "semantic_hash": "0c009fe0e3d885f251b1dcaa1da91745"
   },
   "AutoMarket.Application/DTOs/Anuncio/AnuncioSearchDTO.cs": {
-    "mtime": 1784600501.6291533,
-    "ast_hash": "0cb5a4d89d0ee233121550b89d36df3e",
-    "semantic_hash": "0cb5a4d89d0ee233121550b89d36df3e"
+    "mtime": 1784677700.2516935,
+    "ast_hash": "f7c342c1ddbbf8c382ff7537c2f7dd22",
+    "semantic_hash": "f7c342c1ddbbf8c382ff7537c2f7dd22"
   },
   "AutoMarket.Application/DTOs/Anuncio/AnuncioUpdateDTO.cs": {
     "mtime": 1784066831.7754138,
@@ -365,9 +365,9 @@
     "semantic_hash": "be5207da0701bb87eaba23824b55b14b"
   },
   "AutoMarket.Core/Entities/Filters/AnuncioQueryFilter.cs": {
-    "mtime": 1784600898.0717523,
-    "ast_hash": "5a38d6a0c1d37edddc4980a7d87d4047",
-    "semantic_hash": "5a38d6a0c1d37edddc4980a7d87d4047"
+    "mtime": 1784677764.7906988,
+    "ast_hash": "c5a5ffdc37ae9181fd0ad8e156fbfdc3",
+    "semantic_hash": "c5a5ffdc37ae9181fd0ad8e156fbfdc3"
   },
   "AutoMarket.Core/Entities/PerfilDealer.cs": {
     "mtime": 1784603554.7211728,
@@ -385,9 +385,9 @@
     "semantic_hash": "b852ee928fad7341882348e206ec411f"
   },
   "AutoMarket.Core/Interfaces/IUsuarioRepository.cs": {
-    "mtime": 1784489119.7530878,
-    "ast_hash": "2abfc6c65d4ecaffcb6086f0d186e20f",
-    "semantic_hash": "2abfc6c65d4ecaffcb6086f0d186e20f"
+    "mtime": 1784664856.5405874,
+    "ast_hash": "f8a4b93af00839186e4fa85261e4639d",
+    "semantic_hash": "f8a4b93af00839186e4fa85261e4639d"
   },
   "AutoMarket.Infrastructure/Migrations/20260716205353_AgregarColumnaFotosAnuncio.Designer.cs": {
     "mtime": 1784235233.0819237,
@@ -410,9 +410,9 @@
     "semantic_hash": "5b5d699d9e8ab143782311605881fc41"
   },
   "AutoMarket.Infrastructure/Repositories/UsuarioRepository.cs": {
-    "mtime": 1784491728.0836763,
-    "ast_hash": "2d395024675ae81ce23d4552ffb7aa67",
-    "semantic_hash": "2d395024675ae81ce23d4552ffb7aa67"
+    "mtime": 1784664875.510047,
+    "ast_hash": "081db536537d660a1eb98fadb2cbe169",
+    "semantic_hash": "081db536537d660a1eb98fadb2cbe169"
   },
   "AutoMarket.Infrastructure/Services/AlmacenadorS3.cs": {
     "mtime": 1784410429.9282575,
@@ -450,24 +450,24 @@
     "semantic_hash": "4f54457b0fc1c603eb70277aa692806d"
   },
   "coveragereport/class.js": {
-    "mtime": 1784602224.835517,
+    "mtime": 1784666276.1940148,
     "ast_hash": "fa1a9218817280ad0af962cbbd93bec3",
     "semantic_hash": "fa1a9218817280ad0af962cbbd93bec3"
   },
   "coveragereport/main.js": {
-    "mtime": 1784602224.9016328,
-    "ast_hash": "739c2f57cc2a5942b338d7fddf2764d5",
-    "semantic_hash": "739c2f57cc2a5942b338d7fddf2764d5"
+    "mtime": 1784666276.24043,
+    "ast_hash": "954118e8ae3c4eead018b952d32f9c7a",
+    "semantic_hash": "954118e8ae3c4eead018b952d32f9c7a"
   },
   "AutoMarket.Application/DTOs/Dealer/PerfilDealerPublicoDTO.cs": {
-    "mtime": 1784603405.4883864,
-    "ast_hash": "3a510a89e17face8171c445894eff968",
-    "semantic_hash": "3a510a89e17face8171c445894eff968"
+    "mtime": 1784665387.156351,
+    "ast_hash": "1b62cc65f72d76bf13c192e459ba9a90",
+    "semantic_hash": "1b62cc65f72d76bf13c192e459ba9a90"
   },
   "AutoMarket.Application/DTOs/Dealer/PerfilDealerUpdateDtTO.cs": {
-    "mtime": 1784603388.8165522,
-    "ast_hash": "b863455779bfd90b5760f09a8c33fe46",
-    "semantic_hash": "b863455779bfd90b5760f09a8c33fe46"
+    "mtime": 1784665382.4010427,
+    "ast_hash": "63972130ad0d2ff921b25ead0488abe3",
+    "semantic_hash": "63972130ad0d2ff921b25ead0488abe3"
   },
   "AutoMarket.Infrastructure/Migrations/20260721031511_AgregarCamposPerfilDealer.Designer.cs": {
     "mtime": 1784603712.017401,
@@ -478,5 +478,25 @@
     "mtime": 1784603712.0164015,
     "ast_hash": "d970c982f529b03024d49c6958631344",
     "semantic_hash": "d970c982f529b03024d49c6958631344"
+  },
+  "AutoMarket.API/Controllers/DealersController.cs": {
+    "mtime": 1784665181.2898004,
+    "ast_hash": "4bb03352a389e71ddb119657cf33379e",
+    "semantic_hash": "4bb03352a389e71ddb119657cf33379e"
+  },
+  "AutoMarket.Application/Interfaces/IPerfilDealerService.cs": {
+    "mtime": 1784664810.770693,
+    "ast_hash": "4e7ab20d2e83136767eac667a7b2b09b",
+    "semantic_hash": "4e7ab20d2e83136767eac667a7b2b09b"
+  },
+  "AutoMarket.Application/Services/PerfilDealerService.cs": {
+    "mtime": 1784666077.664107,
+    "ast_hash": "c6ce7c1cb82a57910bf28302e6314fff",
+    "semantic_hash": "c6ce7c1cb82a57910bf28302e6314fff"
+  },
+  "AutoMarket.Tests/PerfilDealerServiceTests.cs": {
+    "mtime": 1784666259.7266738,
+    "ast_hash": "25aa386cd01cd9064dc3525830fec5c1",
+    "semantic_hash": "25aa386cd01cd9064dc3525830fec5c1"
   }
 }

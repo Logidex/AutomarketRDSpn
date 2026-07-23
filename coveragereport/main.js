@@ -291,27 +291,30 @@ var assemblies = [
     "name": "AutoMarket.Application",
     "classes": [
       { "name": "AutoMarket.Application.DTOs.AnuncioCreateDto", "rp": "AutoMarket.Application_AnuncioCreateDto.html", "cl": 14, "ucl": 0, "cal": 14, "tl": 22, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Application.DTOs.AnuncioDto", "rp": "AutoMarket.Application_AnuncioDto.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.DTOs.AnuncioDto", "rp": "AutoMarket.Application_AnuncioDto.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 28, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.AnuncioImagenUploadDto", "rp": "AutoMarket.Application_AnuncioImagenUploadDto.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Application.DTOs.AnuncioListadoDto", "rp": "AutoMarket.Application_AnuncioListadoDto.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Application.DTOs.AnuncioSearchDto", "rp": "AutoMarket.Application_AnuncioSearchDto.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 28, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.DTOs.AnuncioListadoDto", "rp": "AutoMarket.Application_AnuncioListadoDto.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.DTOs.AnuncioSearchDto", "rp": "AutoMarket.Application_AnuncioSearchDto.html", "cl": 15, "ucl": 6, "cal": 21, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.AnuncioUpdateDto", "rp": "AutoMarket.Application_AnuncioUpdateDto.html", "cl": 14, "ucl": 1, "cal": 15, "tl": 23, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.PagedResult\u003CT\u003E", "rp": "AutoMarket.Application_PagedResult_1.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.RegistroDto", "rp": "AutoMarket.Application_RegistroDto.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.Usuario.LoginDto", "rp": "AutoMarket.Application_LoginDto.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 8, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.Usuario.PerfilDealerPublicoDto", "rp": "AutoMarket.Application_PerfilDealerPublicoDto.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 14, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.DTOs.Usuario.PerfilDealerUpdateDto", "rp": "AutoMarket.Application_PerfilDealerUpdateDto.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 17, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Application.Services.AnuncioService", "rp": "AutoMarket.Application_AnuncioService.html", "cl": 177, "ucl": 0, "cal": 177, "tl": 214, "cb": 37, "tb": 40, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.Services.AnuncioService", "rp": "AutoMarket.Application_AnuncioService.html", "cl": 195, "ucl": 21, "cal": 216, "tl": 237, "cb": 62, "tb": 88, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.Services.AuthService", "rp": "AutoMarket.Application_AuthService.html", "cl": 44, "ucl": 0, "cal": 44, "tl": 80, "cb": 12, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "AutoMarket.Application.Services.PerfilDealerService", "rp": "AutoMarket.Application_PerfilDealerService.html", "cl": 67, "ucl": 7, "cal": 74, "tl": 117, "cb": 15, "tb": 20, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Application.Services.SuscripcionService", "rp": "AutoMarket.Application_SuscripcionService.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 53, "cb": 8, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "AutoMarket.Core",
     "classes": [
-      { "name": "AutoMarket.Core.Entities.Anuncio", "rp": "AutoMarket.Core_Anuncio.html", "cl": 93, "ucl": 24, "cal": 117, "tl": 173, "cb": 19, "tb": 42, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Core.Entities.AnuncioQueryFilter", "rp": "AutoMarket.Core_AnuncioQueryFilter.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Core.Entities.PerfilDealer", "rp": "AutoMarket.Core_PerfilDealer.html", "cl": 57, "ucl": 11, "cal": 68, "tl": 91, "cb": 14, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "AutoMarket.Core.Entities.Usuario", "rp": "AutoMarket.Core_Usuario.html", "cl": 47, "ucl": 21, "cal": 68, "tl": 105, "cb": 13, "tb": 24, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.Anuncio", "rp": "AutoMarket.Core_Anuncio.html", "cl": 95, "ucl": 22, "cal": 117, "tl": 173, "cb": 22, "tb": 42, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.AnuncioQueryFilter", "rp": "AutoMarket.Core_AnuncioQueryFilter.html", "cl": 15, "ucl": 1, "cal": 16, "tl": 22, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.PerfilDealer", "rp": "AutoMarket.Core_PerfilDealer.html", "cl": 69, "ucl": 8, "cal": 77, "tl": 92, "cb": 22, "tb": 44, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.SuscripcionDealer", "rp": "AutoMarket.Core_SuscripcionDealer.html", "cl": 23, "ucl": 13, "cal": 36, "tl": 72, "cb": 2, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Entities.Usuario", "rp": "AutoMarket.Core_Usuario.html", "cl": 48, "ucl": 20, "cal": 68, "tl": 105, "cb": 13, "tb": 24, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "AutoMarket.Core.Exceptions.BusinessRuleException", "rp": "AutoMarket.Core_BusinessRuleException.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 8, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
@@ -325,6 +328,12 @@ var riskHotspotMetrics = [
 ];
 
 var riskHotspots = [
+  {
+    "assembly": "AutoMarket.Application", "class": "AutoMarket.Application.Services.AnuncioService", "reportPath": "AutoMarket.Application_AnuncioService.html", "methodName": "SubirImagenesAsync()", "methodShortName": "SubirImagenesAsync()", "fileIndex": 0, "line": 161,
+    "metrics": [
+      { "value": 35, "exceeded": true },
+      { "value": 12, "exceeded": false },
+    ]},
   {
     "assembly": "AutoMarket.Core", "class": "AutoMarket.Core.Entities.Usuario", "reportPath": "AutoMarket.Core_Usuario.html", "methodName": ".ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)", "methodShortName": ".ctor(...)", "fileIndex": 0, "line": 26,
     "metrics": [

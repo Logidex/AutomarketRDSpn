@@ -9,6 +9,7 @@ using AutoMarket.Application.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMarket.Infrastructure.BackgroundServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPerfilDealerService, PerfilDealerService>();
 builder.Services.AddScoped<ISuscripcionRepository, SuscripcionRepository>();
+builder.Services.AddHostedService<SuscripcionMonitorService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql("Host=localhost;Port=5432;Database=AutoMarketDB;Username=admin;Password=Secreto123!"));
 

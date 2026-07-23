@@ -1,5 +1,6 @@
 using AutoMarket.Application.DTOs;
 using AutoMarket.Core.Entities;
+using AutoMarket.Core.Exceptions;
 using AutoMarket.Core.Interfaces;
 
 namespace AutoMarket.Application.Services;
@@ -8,16 +9,37 @@ public class AnuncioService
 {
     private readonly IAnuncioRepository _repository;
     private readonly IAlmacenadorArchivos _almacenadorArchivos;
+    private readonly IUsuarioRepository _usuarioRepository;
 
-    // Inyección de dependencias: El servicio exige el contrato para poder funcionar
-    public AnuncioService(IAnuncioRepository repository, IAlmacenadorArchivos almacenadorArchivos)
+    public AnuncioService(
+        IAnuncioRepository repository,
+        IAlmacenadorArchivos almacenadorArchivos,
+        IUsuarioRepository usuarioRepository)
     {
         _repository = repository;
         _almacenadorArchivos = almacenadorArchivos;
+        _usuarioRepository = usuarioRepository;
     }
 
     public async Task CrearAnuncioAsync(AnuncioCreateDto dto)
     {
+        var usuario = await _usuarioRepository.ObtenerDealerConPerfilPorIdAsync(dto.UsuarioId);
+
+        if (usuario == null)
+            throw new KeyNotFoundException("El usuario especificado no existe.");
+
+        bool esVendedorParticular = usuario.PerfilDealer == null;
+
+        if (esVendedorParticular)
+        {
+            int cantidadAnuncios = await _repository.ContarAnunciosPorUsuarioAsync(dto.UsuarioId);
+
+            if (cantidadAnuncios >= 1)
+            {
+                throw new BusinessRuleException("Has alcanzado el límite de 1 anuncio gratuito. Mejora tu cuenta a Dealer para publicar más inventario.");
+            }
+        }
+
         var nuevoAnuncio = new Anuncio(
             usuarioId: dto.UsuarioId,
             marca: dto.Marca,
@@ -81,6 +103,7 @@ public class AnuncioService
             Estado = e.Estado,
             // Enviamos solo la primera foto para la miniatura de la tarjeta
             Fotos = e.Fotos.Take(1).ToList(),
+            BadgeSuscripcion = e.Usuario?.PerfilDealer?.Suscripcion?.Nivel.ToString() ?? "Gratis"
         }).ToList();
 
     }
@@ -200,7 +223,8 @@ public class AnuncioService
             Precio = a.Precio,
             Ubicacion = a.Ubicacion,
             // Tomamos solo la primera foto para la miniatura de la tarjeta, si hay alguna
-            Fotos = a.Fotos != null && a.Fotos.Any() ? a.Fotos.ToList() : new List<string> { "url_imagen_por_defecto.jpg" }
+            Fotos = a.Fotos != null && a.Fotos.Any() ? a.Fotos.ToList() : new List<string> { "url_imagen_por_defecto.jpg" },
+            BadgeSuscripcion = a.Usuario?.PerfilDealer?.Suscripcion?.Nivel.ToString() ?? "Gratis"
         }).ToList();
 
         return new PagedResult<AnuncioListadoDto>(

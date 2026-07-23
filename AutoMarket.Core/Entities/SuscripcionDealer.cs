@@ -57,5 +57,16 @@ public class SuscripcionDealer
         if (DateTime.UtcNow > FechaVencimientoUtc) return false;
         return cantidadAnunciosActuales < LimiteAnuncios;
     }
+
+    public void ActualizarNivel(PlanNivel nuevoNivel)
+    {
+        if (Estado == EstadoSuscripcion.Cancelada)
+        {
+            throw new InvalidOperationException("Imposible mutar: La suscripción actual se encuentra cancelada.");
+        }
+
+        Nivel = nuevoNivel;
+
+    }
 }
 

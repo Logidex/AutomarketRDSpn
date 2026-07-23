@@ -35,7 +35,11 @@ public class AnuncioRepository : IAnuncioRepository
     public async Task<IReadOnlyCollection<Anuncio>> ObtenerTodosLosAnuncios()
     {
         return await _context.Anuncios
+              .Include(a => a.Usuario)
+                  .ThenInclude(u => u.PerfilDealer)
+                      .ThenInclude(p => p!.Suscripcion)
               .Where(a => a.Estado == "Publicado")
+              .AsNoTracking()
               .ToListAsync();
     }
 
@@ -52,7 +56,11 @@ public class AnuncioRepository : IAnuncioRepository
 
     public async Task<(IEnumerable<Anuncio> Anuncios, int TotalRegistros)> BuscarPaginadoAsync(AnuncioQueryFilter filtro)
     {
-        IQueryable<Anuncio> query = _context.Anuncios.AsNoTracking();
+        IQueryable<Anuncio> query = _context.Anuncios
+        .Include(a => a.Usuario)
+            .ThenInclude(u => u.PerfilDealer)
+                .ThenInclude(p => p!.Suscripcion)
+        .AsNoTracking();
 
         if (!string.IsNullOrWhiteSpace(filtro.Marca))
         {
@@ -119,5 +127,10 @@ public class AnuncioRepository : IAnuncioRepository
             .ToListAsync();
 
         return (anuncios, totalRegistros);
+    }
+
+    public async Task<int> ContarAnunciosPorUsuarioAsync(int usuarioId)
+    {
+        return await _context.Anuncios.CountAsync(a => a.UsuarioId == usuarioId);
     }
 }

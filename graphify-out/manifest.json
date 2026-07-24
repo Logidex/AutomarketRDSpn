@@ -10,9 +10,9 @@
     "semantic_hash": "913dbac9a53380abf7f1b1db2f0147a6"
   },
   "AutoMarket.API/Program.cs": {
-    "mtime": 1784772545.53008,
-    "ast_hash": "dfb5714fe329a9877188847af9fd3a0c",
-    "semantic_hash": "dfb5714fe329a9877188847af9fd3a0c"
+    "mtime": 1784837518.2266645,
+    "ast_hash": "23ba87242e046cd87574548d0cd239a3",
+    "semantic_hash": "23ba87242e046cd87574548d0cd239a3"
   },
   "AutoMarket.API/Properties/launchSettings.json": {
     "mtime": 1783989754.5274684,
@@ -345,9 +345,9 @@
     "semantic_hash": "7380ce19cd3c704e0ee6a57032beb263"
   },
   "AutoMarket.Tests/AnuncioServiceTests.cs": {
-    "mtime": 1784602170.2702303,
-    "ast_hash": "0130c650b16197bfa33462975a9960c5",
-    "semantic_hash": "0130c650b16197bfa33462975a9960c5"
+    "mtime": 1784838261.4029546,
+    "ast_hash": "347483b688dd531f78a6427e51e8fd25",
+    "semantic_hash": "347483b688dd531f78a6427e51e8fd25"
   },
   "AutoMarket.Tests/AutoMarket.Tests.csproj": {
     "mtime": 1784577275.3547268,
@@ -370,14 +370,14 @@
     "semantic_hash": "4f54457b0fc1c603eb70277aa692806d"
   },
   "coveragereport/class.js": {
-    "mtime": 1784666276.1940148,
+    "mtime": 1784838827.4176497,
     "ast_hash": "fa1a9218817280ad0af962cbbd93bec3",
     "semantic_hash": "fa1a9218817280ad0af962cbbd93bec3"
   },
   "coveragereport/main.js": {
-    "mtime": 1784666276.24043,
-    "ast_hash": "954118e8ae3c4eead018b952d32f9c7a",
-    "semantic_hash": "954118e8ae3c4eead018b952d32f9c7a"
+    "mtime": 1784838827.4928222,
+    "ast_hash": "c21bd484413a1bda53ad19e952ba7d0b",
+    "semantic_hash": "c21bd484413a1bda53ad19e952ba7d0b"
   },
   "AutoMarket.Application/DTOs/Dealer/PerfilDealerPublicoDTO.cs": {
     "mtime": 1784665387.156351,
@@ -463,5 +463,20 @@
     "mtime": 1784772607.9120293,
     "ast_hash": "f926609374a300593d04fe674a6a5f74",
     "semantic_hash": "f926609374a300593d04fe674a6a5f74"
+  },
+  "AutoMarket.Infrastructure/BackgroundServices/SuscripcionMonitorService.cs": {
+    "mtime": 1784837444.0308313,
+    "ast_hash": "647331ec47dcf5fb3c9d6b8d533c29b1",
+    "semantic_hash": "647331ec47dcf5fb3c9d6b8d533c29b1"
+  },
+  "AutoMarket.Tests/SuscripcionServiceTests.cs": {
+    "mtime": 1784838642.759344,
+    "ast_hash": "fad5744b4a6e7ed37d44cf589e0e796c",
+    "semantic_hash": "fad5744b4a6e7ed37d44cf589e0e796c"
+  },
+  "AutoMarket.Tests/TestResults/SuscripcionServiceTests.cs": {
+    "mtime": 1784838504.8108592,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   }
 }

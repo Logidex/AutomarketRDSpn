@@ -34,6 +34,8 @@ public class Anuncio
     public List<string> Accesorios { get; private set; } = new();
     private readonly List<string> _fotos = new();
     public IReadOnlyCollection<string> Fotos => _fotos.AsReadOnly(); 
+    private readonly List<Lead> _leads = new();
+    public IReadOnlyCollection<Lead> Leads => _leads.AsReadOnly();
 
     // ==========================================
     // 1. CONSTRUCTOR PARA EF CORE

@@ -24,7 +24,9 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPerfilDealerService, PerfilDealerService>();
 builder.Services.AddScoped<ISuscripcionRepository, SuscripcionRepository>();
+builder.Services.AddScoped<ILeadRepository, LeadRepository>();
 builder.Services.AddHostedService<SuscripcionMonitorService>();
+builder.Services.AddScoped<IEmailSenderService, SmtpEmailSenderService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql("Host=localhost;Port=5432;Database=AutoMarketDB;Username=admin;Password=Secreto123!"));
 

@@ -108,6 +108,50 @@ namespace AutoMarket.Infrastructure.Migrations
                     b.ToTable("Anuncios");
                 });
 
+            modelBuilder.Entity("AutoMarket.Core.Entities.Lead", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AnuncioId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Canal")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("EmailContacto")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<DateTime>("FechaCreacionUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Mensaje")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
+
+                    b.Property<string>("NombreContacto")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("TelefonoContacto")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnuncioId");
+
+                    b.ToTable("Leads", (string)null);
+                });
+
             modelBuilder.Entity("AutoMarket.Core.Entities.PerfilDealer", b =>
                 {
                     b.Property<int>("UsuarioId")
@@ -240,6 +284,17 @@ namespace AutoMarket.Infrastructure.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("AutoMarket.Core.Entities.Lead", b =>
+                {
+                    b.HasOne("AutoMarket.Core.Entities.Anuncio", "Anuncio")
+                        .WithMany("Leads")
+                        .HasForeignKey("AnuncioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Anuncio");
+                });
+
             modelBuilder.Entity("AutoMarket.Core.Entities.PerfilDealer", b =>
                 {
                     b.HasOne("AutoMarket.Core.Entities.Usuario", "Usuario")
@@ -260,6 +315,11 @@ namespace AutoMarket.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("PerfilDealer");
+                });
+
+            modelBuilder.Entity("AutoMarket.Core.Entities.Anuncio", b =>
+                {
+                    b.Navigation("Leads");
                 });
 
             modelBuilder.Entity("AutoMarket.Core.Entities.PerfilDealer", b =>

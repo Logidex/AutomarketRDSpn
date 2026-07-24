@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace AutoMarket.Infrastructure.Data;
 
-// Heredamos de DbContext para obtener todos los poderes de Entity Framework
 public class ApplicationDbContext : DbContext
 {
-    // Este constructor recibe las credenciales de conexión que configuraremos más adelante
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
@@ -16,6 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<PerfilDealer> PerfilesDealers { get; set; }
     public DbSet<SuscripcionDealer> SuscripcionDealers { get; set; }
+    public DbSet<Lead> Leads { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -41,7 +40,7 @@ public class ApplicationDbContext : DbContext
                         ? v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                         : new List<string>()
                 )
-                .Metadata.SetValueComparer(fotosComparer); // 👈 Le asignamos el comparador aquí
+                .Metadata.SetValueComparer(fotosComparer);
         });
 
         // ==========================================
@@ -85,7 +84,7 @@ public class ApplicationDbContext : DbContext
         });
 
         // ==========================================
-        // CONFIGURACIÓN: SUSCRIPCION DEALER (Retos 2 y 3)
+        // CONFIGURACIÓN: SUSCRIPCION DEALER
         // ==========================================
         modelBuilder.Entity<SuscripcionDealer>(b =>
         {
@@ -117,6 +116,41 @@ public class ApplicationDbContext : DbContext
             // Índice Compuesto de alto rendimiento para el BackgroundService
             b.HasIndex(s => new { s.FechaVencimientoUtc, s.Estado })
                 .HasDatabaseName("IX_SuscripcionDealer_Vencimiento_Estado");
+        });
+
+        // =========================================================================
+        // CONFIGURACIÓN DE LA ENTIDAD: Lead
+        // =========================================================================
+        modelBuilder.Entity<Lead>(entity =>
+        {
+            entity.ToTable("Leads");
+
+            entity.HasKey(l => l.Id);
+
+            // Restricciones de longitud para optimizar la base de datos
+            entity.Property(l => l.NombreContacto)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.Property(l => l.EmailContacto)
+                .HasMaxLength(150);
+
+            entity.Property(l => l.TelefonoContacto)
+                .HasMaxLength(20);
+
+            entity.Property(l => l.Mensaje)
+                .IsRequired()
+                .HasMaxLength(1000); // Límite razonable para un mensaje de contacto
+
+            // Conversión del Enum a entero en la base de datos (PostgreSQL lo maneja eficientemente)
+            entity.Property(l => l.Canal)
+                .IsRequired();
+
+            // Relación 1 a Muchos: 1 Anuncio -> N Leads
+            entity.HasOne(l => l.Anuncio)
+                .WithMany(a => a.Leads)
+                .HasForeignKey(l => l.AnuncioId)
+                .OnDelete(DeleteBehavior.Cascade); // Si se elimina un anuncio, se borran sus leads asociados
         });
     }
 }

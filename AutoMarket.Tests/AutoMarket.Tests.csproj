@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AutoMarket.Application\AutoMarket.Application.csproj" />
     <ProjectReference Include="..\AutoMarket.Core\AutoMarket.Core.csproj" />
+    <ProjectReference Include="..\AutoMarket.API\AutoMarket.API.csproj" />
   </ItemGroup>
 
 </Project>

@@ -392,3 +392,5 @@ Ejemplos de escenarios cubiertos:
 - Agregar política de autorización por roles.
 - Documentar variables de entorno con un archivo `.env.example`.
 - Definir estrategia de renovación o expiración de tokens JWT.
+
+## Actualizar Archivo pendiente

@@ -9,7 +9,8 @@
 - **Base de datos:** PostgreSQL
 - **ORM:** Entity Framework Core
 - **Autenticación:** JWT Bearer
-- **Almacenamiento de imágenes:** Amazon S3
+- **Almacenamiento de imágenes:** Amazon S3 (Abstraído)
+- **Notificaciones:** SMTP Client nativo (C#)
 - **Documentación de API:** OpenAPI y Scalar
 - **Pruebas:** xUnit y Moq
 
@@ -18,23 +19,26 @@
 AutoMarketRD es una API REST orientada a un marketplace de vehículos.
 Permite a usuarios particulares y dealers registrarse, autenticarse,
 crear y publicar anuncios de vehículos, subir imágenes, administrar
-perfiles de dealer y manejar planes de suscripción para dealers.
+perfiles de dealer, manejar planes de suscripción y recibir contactos (leads)
+directamente en sus bandejas de entrada mediante un sistema de notificaciones.
 
 ## Alcance actual
 
 El sistema incluye:
 
-- Registro e inicio de sesión de usuarios
-- Autenticación basada en JWT
-- Usuarios compradores, dealers y administradores
-- Creación, consulta, edición y publicación de anuncios
-- Búsqueda paginada de anuncios
-- Carga de imágenes asociadas a anuncios
-- Perfil público y actualización de perfil para dealers
-- Almacenamiento de archivos en Amazon S3
-- Gestión de suscripciones y planes para dealers
-- Monitoreo en segundo plano de suscripciones
-- Pruebas unitarias para servicios principales
+- Registro e inicio de sesión de usuarios.
+- Autenticación y Autorización basada en JWT.
+- Usuarios compradores, dealers y administradores.
+- Creación, consulta, edición y publicación de anuncios.
+- Búsqueda paginada de anuncios.
+- Carga de imágenes asociadas a anuncios.
+- Perfil público y actualización de perfil para dealers.
+- Almacenamiento de archivos desacoplado.
+- Gestión de suscripciones y planes SaaS para dealers.
+- Monitoreo en segundo plano de morosidad de suscripciones.
+- **Captación de leads (contactos) anónimos y autenticados.**
+- **Envío de alertas por correo electrónico vía servidor SMTP.**
+- Pruebas unitarias para servicios principales (Cobertura 100% en flujos críticos).
 
 ## Arquitectura general
 
@@ -56,31 +60,21 @@ Servicios, casos de uso, DTOs, interfaces de aplicación
         |
         v
 AutoMarket.Core
-Entidades, reglas de negocio, contratos de repositorios
+Entidades, reglas de negocio, contratos de repositorios y notificaciones
         ^
         |
 AutoMarket.Infrastructure
-EF Core, PostgreSQL, repositorios, JWT, S3, migraciones
+EF Core, PostgreSQL, Repositorios, JWT, S3, SMTP, Migraciones
 ```
 
 ## Regla de dependencias
 
 Las dependencias deben dirigirse hacia las capas internas.
 
-```text
-API ----------> Application ----------> Core
-Infrastructure -----------------------> Core
-Infrastructure -----------------------> Application
-Tests --------> Application / Core / Infrastructure
-```
-
-- `Core` no debe depender de ASP.NET Core, Entity Framework Core,
-  PostgreSQL, Amazon S3 ni JWT.
+- `Core` no debe depender de ASP.NET Core, Entity Framework Core, PostgreSQL, Amazon S3, SMTP ni JWT.
 - `Application` coordina casos de uso y depende de `Core`.
-- `Infrastructure` contiene implementaciones técnicas de contratos
-  definidos en las capas internas.
-- `API` recibe solicitudes HTTP y delega las operaciones a servicios
-  de Application.
+- `Infrastructure` contiene implementaciones técnicas de contratos definidos en las capas internas.
+- `API` recibe solicitudes HTTP y delega las operaciones a servicios de `Application`.
 - `Tests` valida las reglas y servicios del sistema de forma aislada.
 
 ## Estructura de la solución
@@ -92,15 +86,16 @@ AutoMarketRD.sln
 │   ├── Controllers/
 │   │   ├── AnunciosController.cs
 │   │   ├── AuthController.cs
-│   │   └── DealersController.cs
+│   │   ├── DealersController.cs
+│   │   └── LeadsController.cs
 │   ├── Program.cs
-│   ├── appsettings.json
-│   └── appsettings.Development.json
+│   └── appsettings.json
 │
 ├── AutoMarket.Application/
 │   ├── DTOs/
 │   │   ├── Anuncio/
 │   │   ├── Dealer/
+│   │   ├── Lead/
 │   │   └── Usuario/
 │   ├── Interfaces/
 │   └── Services/
@@ -108,6 +103,7 @@ AutoMarketRD.sln
 ├── AutoMarket.Core/
 │   ├── Entities/
 │   │   ├── Anuncio.cs
+│   │   ├── Lead.cs
 │   │   ├── Usuario.cs
 │   │   ├── PerfilDealer.cs
 │   │   └── SuscripcionDealer.cs
@@ -124,6 +120,7 @@ AutoMarketRD.sln
 │   └── Services/
 │
 └── AutoMarket.Tests/
+    ├── Controllers/
     └── Services/
 ```
 
@@ -137,12 +134,11 @@ tecnologías externas.
 
 Entidades principales:
 
-- `Usuario`: representa una cuenta del sistema y permite crear perfiles
-  de dealer o administradores internos.
-- `Anuncio`: representa una publicación de vehículo y contiene
-  operaciones como actualizar información, publicar, agregar y eliminar fotos.
+- `Usuario`: representa una cuenta del sistema y permite crear perfiles de dealer o administradores internos.
+- `Anuncio`: representa una publicación de vehículo y contiene operaciones como actualizar información, publicar, agregar y eliminar fotos.
 - `PerfilDealer`: representa la información pública y comercial de un dealer.
 - `SuscripcionDealer`: representa el plan y estado de la suscripción de un dealer.
+- `Lead`: representa una intención de compra o contacto hacia un anuncio específico.
 
 Contratos principales:
 
@@ -150,21 +146,23 @@ Contratos principales:
 - `IAnuncioRepository`
 - `ISuscripcionRepository`
 - `IAlmacenadorArchivos`
+- `ILeadRepository`: Contrato para guardar y consultar mensajes.
+- `IEmailSenderService`: Contrato de dominio para enviar correos, sin atarse a un proveedor.
 
 ### AutoMarket.Application
 
-Coordina los casos de uso de la aplicación. Contiene DTOs, interfaces de
-servicios y servicios que aplican las reglas de negocio utilizando
-entidades y repositorios.
+Coordina los casos de uso de la aplicación. Aplica las reglas de negocio
+utilizando entidades, repositorios y servicios externos.
 
 Servicios principales:
 
 | Servicio | Responsabilidad |
 |---|---|
 | `AuthService` | Registro, validación de credenciales e inicio de sesión |
-| `AnuncioService` | Creación, consulta, búsqueda, actualización, publicación e imágenes |
-| `PerfilDealerService` | Consulta y actualización del perfil de dealer |
+| `AnuncioService` | Creación, consulta, actualización, publicación e imágenes |
+| `PerfilDealerService` | Consulta y actualización del perfil de comercial |
 | `SuscripcionService` | Asignación y cambio de planes de suscripción |
+| `LeadService` | Orquestación de captación de leads y disparador de correos |
 
 DTOs principales:
 
@@ -178,6 +176,8 @@ DTOs principales:
 - `PagedResult`
 - `PerfilDealerPublicoDto`
 - `PerfilDealerUpdateDto`
+- `LeadCreateDto`
+- `LeadDto`
 
 ### AutoMarket.Infrastructure
 
@@ -187,33 +187,34 @@ Componentes principales:
 
 | Componente | Responsabilidad |
 |---|---|
-| `ApplicationDbContext` | Configuración y acceso a la base de datos con EF Core |
+| `ApplicationDbContext` | Configuración y acceso a BD con EF Core |
 | `UsuarioRepository` | Implementación de `IUsuarioRepository` |
 | `AnuncioRepository` | Implementación de `IAnuncioRepository` |
 | `SuscripcionRepository` | Implementación de `ISuscripcionRepository` |
+| `LeadRepository` | Implementación de `ILeadRepository` |
 | `TokenService` | Generación de tokens JWT |
 | `AlmacenadorS3` | Carga y eliminación de archivos en Amazon S3 |
-| `SuscripcionMonitorService` | Proceso en segundo plano para monitorear suscripciones |
-| `Migrations` | Historial versionado de cambios de esquema de base de datos |
+| `SuscripcionMonitorService` | Proceso Background (`IHostedService`) para morosos |
+| `SmtpEmailSenderService` | Implementación real de envío de correos vía `System.Net.Mail` |
 
 ### AutoMarket.API
 
-Es la capa de presentación y el punto de entrada HTTP. Configura
-inyección de dependencias, autenticación, documentación de API y rutas.
+Capa de presentación y punto de entrada HTTP. Configura inyección de
+dependencias, autenticación, documentación de API y rutas.
 
 Controllers principales:
 
 | Controller | Responsabilidad |
 |---|---|
-| `AuthController` | Registro e inicio de sesión |
-| `AnunciosController` | Gestión completa de anuncios y carga de imágenes |
-| `DealersController` | Consulta pública y actualización del perfil de dealer |
+| `AuthController` | Autenticación y registro |
+| `AnunciosController` | Gestión del catálogo de vehículos |
+| `DealersController` | Gestión de agencias |
+| `LeadsController` | Recepción pública de mensajes y lectura privada protegida |
 
 ### AutoMarket.Tests
 
-Contiene pruebas unitarias de los servicios de aplicación utilizando
-xUnit y Moq. El objetivo es validar reglas de negocio sin depender de
-la base de datos ni servicios externos.
+Pruebas unitarias aisladas utilizando xUnit y Moq. El objetivo es validar
+reglas de negocio sin depender de la base de datos ni servicios externos.
 
 Pruebas actuales:
 
@@ -221,6 +222,8 @@ Pruebas actuales:
 - `UsuarioServiceTests`
 - `PerfilDealerServiceTests`
 - `SuscripcionServiceTests`
+- `LeadServiceTests`: Valida orquestación y resiliencia si el servidor SMTP falla.
+- `LeadsControllerTests`: Valida políticas de acceso HTTP (`AllowAnonymous` vs `Authorize`).
 
 ## Módulos funcionales
 
@@ -263,6 +266,15 @@ Reglas de negocio documentadas:
 - Las imágenes deben cumplir las validaciones de tamaño y formato.
 - Un anuncio debe existir antes de actualizarlo, publicarlo o subir imágenes.
 
+### Motor de Ventas y Captación de Leads (RF-005)
+
+Permite a compradores anónimos contactar vendedores de vehículos.
+
+- Los visitantes no necesitan cuenta para enviar mensajes (`[AllowAnonymous]`).
+- Los dealers necesitan estar logueados para ver su bandeja (`[Authorize]`).
+- Se dispara un correo HTML en tiempo real al dueño del vehículo usando `SmtpClient`.
+- **Resiliencia:** Si el correo falla temporalmente, el Lead se guarda en BD para no perder al cliente.
+
 ### Perfil de dealer
 
 Permite consultar públicamente el perfil de un dealer y que el dealer
@@ -274,18 +286,14 @@ Reglas de negocio:
 - El logo debe cumplir validaciones de extensión y tamaño.
 - Los archivos se almacenan mediante la abstracción `IAlmacenadorArchivos`.
 
-### Suscripciones
+### Suscripciones SaaS
 
-Administra los planes de los dealers y sus restricciones.
+Administra los planes de los dealers y sus restricciones de publicación.
 
-Reglas de negocio:
-
-- Un dealer no puede tener más de una suscripción activa asignada por
-  el flujo inicial.
+- Un dealer no puede tener más de una suscripción activa.
 - No se puede cambiar al mismo plan actual.
 - Una suscripción cancelada no puede cambiar de plan.
-- El plan controla si el dealer puede publicar nuevos anuncios.
-- Un servicio en segundo plano monitorea el estado de las suscripciones.
+- Un servicio en segundo plano (`SuscripcionMonitorService`) realiza barridos diarios automatizados.
 
 ## Flujo: publicar un anuncio
 
@@ -312,85 +320,65 @@ Las migraciones registran cambios de estructura, incluyendo:
 - Sistema de usuarios
 - Campos para perfil de dealer
 - Suscripción SaaS para dealers
+- Entidad Lead y relaciones
 
 ## Seguridad
 
 - La autenticación se basa en JWT Bearer.
 - Los endpoints que modifican recursos requieren un usuario autenticado.
-- El identificador del usuario autenticado se obtiene desde los claims
-  del token.
-- La capa Application valida que el usuario sea dueño del anuncio o
-  perfil que intenta modificar.
+- El identificador del usuario autenticado se obtiene desde los claims del token.
+- La capa Application valida que el usuario sea dueño del anuncio o perfil que intenta modificar.
 - Las contraseñas deben almacenarse como hash usando BCrypt.
-- Las credenciales de PostgreSQL, JWT y Amazon S3 deben configurarse
-  por variables de entorno o secretos; nunca deben subirse al repositorio.
+- Las credenciales de PostgreSQL, JWT, Amazon S3 y SMTP deben configurarse por variables de entorno o secretos; nunca deben subirse al repositorio.
 
 ## Integraciones externas
 
 | Integración | Uso |
 |---|---|
-| PostgreSQL | Persistencia relacional de usuarios, anuncios y suscripciones |
-| Amazon S3 | Almacenamiento de imágenes de anuncios y logos de dealers |
-| JWT | Autenticación stateless para solicitudes HTTP |
+| PostgreSQL | Persistencia relacional general |
+| Amazon S3 | Almacenamiento de imágenes de anuncios y logos |
+| Servidor SMTP | Envío de correos electrónicos transaccionales (ej. Gmail) |
+| JWT | Autenticación stateless |
 | Scalar / OpenAPI | Exploración y documentación de endpoints |
 
 ## Decisiones arquitectónicas
 
-### ADR-001: Arquitectura por capas
+### ADR-001: Semi-Clean Architecture
 
-Se utiliza una arquitectura por capas con principios de Clean Architecture
-para separar el núcleo de negocio de los detalles de infraestructura.
-
-La solución no busca aplicar abstracciones innecesarias. Por ello se
-considera una semi-Clean Architecture: mantiene límites claros, pero
-prioriza simplicidad y velocidad de desarrollo cuando una abstracción
-adicional no aporta valor.
+Mantiene límites claros sin abstracciones innecesarias que resten velocidad de desarrollo.
 
 ### ADR-002: Repositorios como contratos
 
-Los repositorios se definen mediante interfaces en Core y se implementan
-en Infrastructure. Esto evita que los servicios de Application dependan
-directamente de Entity Framework Core.
+Aislan a EF Core de la lógica de aplicación. Los repositorios se definen como interfaces en Core y se implementan en Infrastructure.
 
-### ADR-003: Almacenamiento de archivos desacoplado
+### ADR-003: Servicios Externos Desacoplados
 
-La aplicación depende de `IAlmacenadorArchivos`, mientras que
-`AlmacenadorS3` implementa el almacenamiento concreto en Amazon S3.
-Esto permite reemplazar S3 por otra solución sin modificar los casos de uso.
+`IAlmacenadorArchivos` e `IEmailSenderService` permiten cambiar a AWS SES, SendGrid o Cloudinary en el futuro tocando solo un archivo en Infrastructure.
 
-### ADR-004: Servicio en segundo plano
+### ADR-004: Background Services
 
-`SuscripcionMonitorService` se ejecuta como servicio de fondo para
-procesar reglas relacionadas con el estado de las suscripciones, sin
-depender de una solicitud HTTP.
+`SuscripcionMonitorService` se ejecuta como proceso automático sin depender de Cron Jobs externos ni solicitudes HTTP.
 
-## Pruebas
+## 🚀 Roadmap hacia Producción
 
-Las pruebas unitarias se enfocan en los servicios de Application.
+### Fase 1: Seguridad y Preparación Frontend
 
-Ejemplos de escenarios cubiertos:
+- [ ] **Configurar CORS:** Habilitar políticas de orígenes cruzados en `Program.cs` para el consumo desde el cliente web (React).
+- [ ] **Limpieza de Secretos:** Migrar la conexión PostgreSQL, secretos JWT y contraseñas SMTP a User Secrets / Variables de Entorno.
+- [ ] **Rate Limiting:** Implementar limitador de peticiones en los endpoints públicos (`LeadsController`) para evitar ataques de Spam.
 
-- Registro con correo existente.
-- Registro correcto de comprador y dealer.
-- Login con credenciales válidas e inválidas.
-- Creación de anuncio para usuario particular y dealer.
-- Restricción de anuncios para usuario particular.
-- Actualización y publicación solo por el propietario.
-- Validación de imágenes por tamaño.
-- Actualización de perfil de dealer.
-- Asignación y cambio de plan de suscripción.
-- Restricciones para suscripciones canceladas.
+### Fase 2: Módulo Backoffice (Admin Supremo)
 
-## Mejoras pendientes
+- [ ] **Data Seeder:** Script de inicialización para crear el usuario Administrador primario.
+- [ ] **Admin Controller:** Endpoints protegidos para la moderación forzada de anuncios y suspensión de perfiles.
 
-- Agregar middleware global para convertir excepciones de negocio en
-  respuestas HTTP uniformes.
-- Separar DTOs de entrada (`Request`) y salida (`Response`) si el
-  proyecto crece.
-- Agregar pruebas de integración para controllers, autenticación y EF Core.
-- Incorporar paginación, filtros y ordenamiento documentados en OpenAPI.
-- Agregar política de autorización por roles.
-- Documentar variables de entorno con un archivo `.env.example`.
-- Definir estrategia de renovación o expiración de tokens JWT.
+### Fase 3: Retención UX y Analíticas
 
-## Actualizar Archivo pendiente
+- [ ] **Favoritos:** Entidad y relación N:M para guardar vehículos.
+- [ ] **Comparador:** Endpoint optimizado para cruzar especificaciones técnicas de múltiples vehículos.
+- [ ] **Paginación Global:** Refactorizar listados para implementar el modelo `PagedResult`.
+
+### Fase 4: Monetización
+
+- [ ] **Pasarela de Pagos:** Integración con proveedor (Stripe / Local) para el cobro real de suscripciones.
+- [ ] **Webhooks:** Recepción de eventos del banco para detonar la activación del plan.

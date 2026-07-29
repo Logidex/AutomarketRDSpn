@@ -3,6 +3,7 @@ using AutoMarket.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace AutoMarket.API.Controllers;
 
@@ -22,7 +23,8 @@ public class LeadsController : ControllerBase
     // POST: api/leads
     // =========================================================================
     [HttpPost]
-    [AllowAnonymous] // 👈 Importante: Los compradores no necesitan cuenta para preguntar
+    [AllowAnonymous]
+    [EnableRateLimiting("PoliticaLeads")]
     public async Task<IActionResult> CrearLead([FromBody] LeadCreateDto dto)
     {
         if (!ModelState.IsValid)
